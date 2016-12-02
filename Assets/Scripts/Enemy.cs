@@ -5,8 +5,27 @@ public class Enemy : MonoBehaviour {
 	
 	public GameObject effect;
 
-	void OnTriggerEnter(Collider col){
+	public GameObject player;
+	private Vector3 playerPos;
+	private Vector3 enemyPos;
+	public float moveStartDis = 7.0f;
 
+	void Update(){
+		
+		playerPos = player.transform.position;
+		enemyPos = this.transform.position;
+
+		float dis = Vector3.Distance (playerPos, enemyPos);
+		if (dis < moveStartDis) {
+			Debug.Log (gameObject.name + "との距離" + dis);
+
+			//敵の移動をタイプ別に関数にまとめてここで呼ぶ
+		}
+
+	}
+
+	void OnTriggerEnter(Collider col){
+		
 		transform.FindChild("Explosion").GetComponent<ParticleSystem> ().Play();
 		DestroyEff (effect);
 		EleaseAndDestroy ();

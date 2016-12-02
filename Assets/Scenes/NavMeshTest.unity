@@ -19058,6 +19058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 1061461274}
+  player: {fileID: 974737824}
 --- !u!54 &532408054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19176,6 +19177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 465650324}
+  player: {fileID: 974737824}
 --- !u!54 &642361375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25648,6 +25650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 694957493}
+  player: {fileID: 974737824}
 --- !u!54 &946071405
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25758,6 +25761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 2040289145}
+  player: {fileID: 974737824}
 --- !u!54 &961587914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30630,6 +30634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 454229184}
+  player: {fileID: 974737824}
 --- !u!54 &1083653173
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30834,6 +30839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 802983881}
+  player: {fileID: 974737824}
 --- !u!54 &1153358697
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30944,6 +30950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 487132189}
+  player: {fileID: 974737824}
 --- !u!54 &1290986912
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41986,6 +41993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 223855709}
+  player: {fileID: 974737824}
 --- !u!54 &1951928172
 Rigidbody:
   m_ObjectHideFlags: 0
