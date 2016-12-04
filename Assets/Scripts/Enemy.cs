@@ -4,11 +4,17 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 	
 	public GameObject effect;
-
+	public GameController gc;
 	public GameObject player;
 	private Vector3 playerPos;
 	private Vector3 enemyPos;
 	public float moveStartDis = 7.0f;
+
+	public int enemyScore = 10;
+
+	void Start() {
+		gc = GameObject.Find("GameController").GetComponent<GameController>();
+	}
 
 	void Update(){
 		
@@ -17,7 +23,7 @@ public class Enemy : MonoBehaviour {
 
 		float dis = Vector3.Distance (playerPos, enemyPos);
 		if (dis < moveStartDis) {
-			Debug.Log (gameObject.name + "との距離" + dis);
+			//Debug.Log (gameObject.name + "との距離" + dis);
 
 			//敵の移動をタイプ別に関数にまとめてここで呼ぶ
 		}
@@ -28,6 +34,7 @@ public class Enemy : MonoBehaviour {
 		
 		transform.FindChild("Explosion").GetComponent<ParticleSystem> ().Play();
 		DestroyEff (effect);
+		gc.addScore(enemyScore);
 		EleaseAndDestroy ();
 
 	}
@@ -44,4 +51,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 
+	//移動
+	//ショット
+	
 }
