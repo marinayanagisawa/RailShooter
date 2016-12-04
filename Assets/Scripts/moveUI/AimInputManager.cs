@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /// <summary>////////////////////
 /// 照準をキーで動かして,照準の方向を銃口が追いかけるタイプ
@@ -24,33 +25,78 @@ public class AimInputManager : MonoBehaviour {
 	private Vector3 pos;
 	private Vector3 aimPos;
 	private Vector3 currentPos;
+	private Vector3 startPos;
+
+	private int shotLeft = 5;
+	private bool canShot;
+
+	public Text shotLeftText;
+
+	void Start() {
+		canShot = true;
+		startPos = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z); 
+	}
 
 	void Update () {
 
 		inputX = Input.GetAxis("Horizontal");
 		inputY = Input.GetAxis("Vertical");
 
+
+		transform.LookAt(Camera.main.transform);
+
+		//残弾表示
+		shotLeftText.text = "残弾: " + shotLeft;
+
+
 		//aimオブジェクトが画面内なら,現在地を記憶して移動,更に移動直後に画面外に出たら,同フレーム内で記憶していた場所に戻る
 		if (ViewPointCheck()) {
 
-			currentPos = aim.position;
-			MoveTarget ();
+				currentPos = aim.position;
+				MoveTarget();
 
-			if (!ViewPointCheck ()) {
+				if (!ViewPointCheck()) {
+					aim.position = currentPos;
+				}
+
+				//aimオブジェクトが画面外に出たら,前フレームで記憶していた場所に戻る
+			} else {
 				aim.position = currentPos;
 			}
-				
-			//aimオブジェクトが画面外に出たら,前フレームで記憶していた場所に戻る
-		} else {
-			aim.position = currentPos;
-		}
 
+			
 
 		//発射！
-		if (Input.GetButtonDown ("Fire1")) {
-			Instantiate (shot, mazzle.transform.position, transform.rotation);
+		if (shotLeft > 0 && canShot){
+			if (Input.GetButtonDown("Fire1")) {
+				Instantiate(shot, mazzle.transform.position, transform.rotation);
+				shotLeft--;
+			}
 		}
 
+		if (shotLeft < 0) {
+			//------------空振り音を追加
+		}
+
+		//リロード
+		if (Input.GetKey(KeyCode.JoystickButton4)) {
+			StartCoroutine("Reload");
+		}
+
+
+		//照準のリセット
+		if (Input.GetKey(KeyCode.JoystickButton5)) {
+
+			moveSpeed = 0.02f;
+
+			if (inputX == 0 && inputY == 0) {
+				transform.localPosition = startPos;
+			}
+		}
+
+		if (Input.GetKeyUp(KeyCode.JoystickButton5)) {
+			moveSpeed = 0.15f;
+		}
 
 	}
 
@@ -66,16 +112,44 @@ public class AimInputManager : MonoBehaviour {
 
 
 	void MoveTarget() {
+
 		if (!reversal) {
-			pos = new Vector3(transform.position.x + (inputX * moveSpeed), transform.position.y + (inputY * moveSpeed), transform.position.z);
+			transform.localPosition = new Vector3(transform.localPosition.x + (inputX * moveSpeed), transform.localPosition.y + (inputY * moveSpeed), transform.localPosition.z);
 		} else {
-			pos = new Vector3(transform.position.x + (inputX * -moveSpeed), transform.position.y + (inputY * -moveSpeed), transform.position.z);
-		
-		
-		
+			transform.localPosition = new Vector3(transform.localPosition.x + (inputX * -moveSpeed), transform.localPosition.y + (inputY * -moveSpeed), transform.localPosition.z);
+
 		}
-		this.transform.position = pos;
 	}
+
+
+	IEnumerator Reload() {
+		
+		//------------リロード音追加
+		canShot = false;
+		yield return new WaitForSeconds(1.5f);
+		shotLeft = 5;
+		canShot = true;
+
+	}
+
+
+		/*
+				if (!reversal) {
+
+					pos = new Vector3(transform.localPosition.x + (inputX * moveSpeed), transform.localPosition.y + (inputY * moveSpeed), transform.position.z);
+				} else {
+					pos = new Vector3(transform.localPosition.x + (inputX * -moveSpeed), transform.localPosition.y + (inputY * -moveSpeed), transform.position.z);
+
+
+
+				}
+				//this.transform.localPosition = pos;
+
+				//transform.RotateAround(Camera.main.transform.position, Vector3.up, inputX * Time.deltaTime * 200f);
+				//transform.RotateAround(Camera.main.transform.position, transform.right, inputY * Time.deltaTime * 200f);
+
+			*/
+
 
 
 }
