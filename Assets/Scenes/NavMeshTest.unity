@@ -1778,6 +1778,18 @@ Prefab:
       propertyPath: shotLeftText
       value: 
       objectReference: {fileID: 1433292786}
+    - target: {fileID: 11416744, guid: d88c1e3c12844734399672475e76b959, type: 2}
+      propertyPath: mazzle
+      value: 
+      objectReference: {fileID: 1184240380}
+    - target: {fileID: 11416744, guid: d88c1e3c12844734399672475e76b959, type: 2}
+      propertyPath: layerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416744, guid: d88c1e3c12844734399672475e76b959, type: 2}
+      propertyPath: aimPoint
+      value: 
+      objectReference: {fileID: 1217925864}
     m_RemovedComponents:
     - {fileID: 5426332, guid: d88c1e3c12844734399672475e76b959, type: 2}
     - {fileID: 5408772, guid: d88c1e3c12844734399672475e76b959, type: 2}
@@ -30841,6 +30853,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11464832, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464832, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464832, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}
+      propertyPath: m_Color.g
+      value: 0.7931037
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}
   m_IsPrefabParent: 0
@@ -30958,6 +30982,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1153358694}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1184240380 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 158654, guid: d88c1e3c12844734399672475e76b959, type: 2}
+  m_PrefabInternal: {fileID: 106592972}
 --- !u!1 &1213900590
 GameObject:
   m_ObjectHideFlags: 0
@@ -31001,6 +31029,10 @@ MonoBehaviour:
   scoreText: {fileID: 1897134873}
   totalScore: 0
   beatNum: 0
+--- !u!1 &1217925864 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 133082, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}
+  m_PrefabInternal: {fileID: 1127947948}
 --- !u!1 &1290986909
 GameObject:
   m_ObjectHideFlags: 0
