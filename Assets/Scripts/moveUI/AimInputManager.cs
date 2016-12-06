@@ -32,11 +32,13 @@ public class AimInputManager : MonoBehaviour {
 
 	public Text shotLeftText;
 	public AudioSource[] sounds;
+	public Image[] shotImage; 
 
 	void Start() {
 		canShot = true;
 		startPos = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z); 
 		sounds = GetComponents<AudioSource>();
+
 
 	}
 
@@ -49,7 +51,30 @@ public class AimInputManager : MonoBehaviour {
 		transform.LookAt(Camera.main.transform);
 
 		//残弾表示
-		shotLeftText.text = "残弾: " + shotLeft;
+		for (int i = 0; i < 6; i++) {
+			shotImage [i].GetComponent<Image> ().enabled = false;
+		}
+		switch (shotLeft) {
+		case 0:
+			shotImage [0].GetComponent<Image> ().enabled = true;
+			break;
+		case 1:
+			shotImage [1].GetComponent<Image> ().enabled = true;
+			break;
+		case 2:
+			shotImage [2].GetComponent<Image> ().enabled = true;
+			break;
+		case 3:
+			shotImage [3].GetComponent<Image> ().enabled = true;
+			break;
+		case 4:
+			shotImage [4].GetComponent<Image> ().enabled = true;
+			break;
+		case 5:
+			shotImage [5].GetComponent<Image> ().enabled = true;
+			break;
+		}
+
 
 
 		//aimオブジェクトが画面内なら,現在地を記憶して移動,更に移動直後に画面外に出たら,同フレーム内で記憶していた場所に戻る
