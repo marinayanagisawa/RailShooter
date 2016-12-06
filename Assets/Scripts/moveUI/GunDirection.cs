@@ -18,7 +18,7 @@ public class GunDirection : MonoBehaviour {
 		Ray ray = new Ray (mazzle.transform.position, transform.forward);
 		RaycastHit hit;
 		//if (NavMesh.Raycast (mazzle.transform.position, target.transform.position,  out hit, NavMesh.AllAreas)) {
-		if (Physics.SphereCast (ray, 0.8f, out hit, 15.0f, layerMask)) {
+		if (Physics.SphereCast (ray, 0.5f, out hit, 15.0f, layerMask)) {
 			aimPoint.GetComponent<Image> ().color = new Color (1f, 0.0f, 0.0f, 0.5f);
 		} else {
 			aimPoint.GetComponent<Image> ().color = new Color (0.0f, 1f, 1f, 0.5f);
