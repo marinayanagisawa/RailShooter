@@ -31,10 +31,13 @@ public class AimInputManager : MonoBehaviour {
 	private bool canShot;
 
 	public Text shotLeftText;
+	public AudioSource[] sounds;
 
 	void Start() {
 		canShot = true;
 		startPos = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z); 
+		sounds = GetComponents<AudioSource>();
+
 	}
 
 	void Update () {
@@ -70,16 +73,19 @@ public class AimInputManager : MonoBehaviour {
 		if (shotLeft > 0 && canShot){
 			if (Input.GetButtonDown("Fire1")) {
 				Instantiate(shot, mazzle.transform.position, transform.rotation);
+				sounds[0].PlayOneShot(sounds[0].clip);
 				shotLeft--;
 			}
 		}
 
 		if (shotLeft < 0) {
-			//------------空振り音を追加
+			//空振り音
+			//sounds[2].PlayOneShot(sounds[2].clip);
 		}
 
 		//リロード
 		if (Input.GetKey(KeyCode.JoystickButton4)) {
+			sounds[2].PlayOneShot(sounds[2].clip);
 			StartCoroutine("Reload");
 		}
 

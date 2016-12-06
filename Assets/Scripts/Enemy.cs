@@ -9,11 +9,13 @@ public class Enemy : MonoBehaviour {
 	private Vector3 playerPos;
 	private Vector3 enemyPos;
 	public float moveStartDis = 7.0f;
+	public AudioSource sound;
 
 	public int enemyScore = 10;
 
 	void Start() {
 		gc = GameObject.Find("GameController").GetComponent<GameController>();
+		sound = GetComponent<AudioSource> ();
 	}
 
 	void Update(){
@@ -31,7 +33,8 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col){
-		
+
+		sound.PlayOneShot (sound.clip);
 		transform.FindChild("Explosion").GetComponent<ParticleSystem> ().Play();
 		DestroyEff (effect);
 		gc.addScore(enemyScore);
@@ -47,7 +50,7 @@ public class Enemy : MonoBehaviour {
 	void EleaseAndDestroy(){
 		GetComponent<MeshRenderer> ().enabled = false;
 		GetComponent<BoxCollider> ().enabled = false;
-		Destroy (this.gameObject, 1.0f);
+		Destroy (this.gameObject, 1.5f);
 	}
 
 
