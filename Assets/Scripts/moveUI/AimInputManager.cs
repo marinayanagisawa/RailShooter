@@ -30,7 +30,7 @@ public class AimInputManager : MonoBehaviour {
 	private int shotLeft = 5;
 	private bool canShot;
 
-	public Text shotLeftText;
+//	public Text shotLeftText;
 	public AudioSource[] sounds;
 	public Image[] shotImage; 
 
@@ -96,7 +96,7 @@ public class AimInputManager : MonoBehaviour {
 
 		//発射！
 		if (shotLeft > 0 && canShot){
-			if (Input.GetButtonDown("Fire1")) {
+			if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space)) {
 				Instantiate(shot, mazzle.transform.position, transform.rotation);
 				sounds[0].PlayOneShot(sounds[0].clip);
 				shotLeft--;
@@ -109,14 +109,14 @@ public class AimInputManager : MonoBehaviour {
 		}
 
 		//リロード
-		if (Input.GetKey(KeyCode.JoystickButton4)) {
+		if (Input.GetKeyDown(KeyCode.JoystickButton4) || Input.GetKeyDown(KeyCode.Return)) {
 			sounds[2].PlayOneShot(sounds[2].clip);
 			StartCoroutine("Reload");
 		}
 
 
 		//照準のリセット
-		if (Input.GetKey(KeyCode.JoystickButton5)) {
+		if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.LeftShift)) {
 
 			moveSpeed = 0.02f;
 
@@ -125,7 +125,7 @@ public class AimInputManager : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyUp(KeyCode.JoystickButton5)) {
+		if (Input.GetKeyUp(KeyCode.JoystickButton5)|| Input.GetKey(KeyCode.LeftShift)) {
 			moveSpeed = 0.15f;
 		}
 
