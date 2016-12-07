@@ -110,8 +110,10 @@ public class AimInputManager : MonoBehaviour {
 
 		//リロード
 		if (Input.GetKeyDown(KeyCode.JoystickButton4) || Input.GetKeyDown(KeyCode.Return)) {
-			sounds[2].PlayOneShot(sounds[2].clip);
-			StartCoroutine("Reload");
+			if (shotLeft < 5) {
+				sounds [2].PlayOneShot (sounds [2].clip);
+				StartCoroutine ("Reload");
+			}
 		}
 
 
