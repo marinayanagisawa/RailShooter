@@ -1776,7 +1776,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474380, guid: d88c1e3c12844734399672475e76b959, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.73
+      value: 5.46
       objectReference: {fileID: 0}
     - target: {fileID: 11497746, guid: d88c1e3c12844734399672475e76b959, type: 2}
       propertyPath: shotLeftText
@@ -1832,7 +1832,7 @@ Prefab:
       objectReference: {fileID: 1262078275}
     - target: {fileID: 474380, guid: d88c1e3c12844734399672475e76b959, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: -0.148
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5426332, guid: d88c1e3c12844734399672475e76b959, type: 2}
@@ -31594,6 +31594,10 @@ Prefab:
     - target: {fileID: 22452436, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}
       propertyPath: m_SizeDelta.y
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 22452436, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d762dc40360f7094b9c52fee1b528d64, type: 2}

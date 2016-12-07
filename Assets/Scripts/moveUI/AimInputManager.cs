@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class AimInputManager : MonoBehaviour {
 
-	private float moveSpeed =0.15f;
+	private float moveSpeed =0.18f;
 	private float inputX;
 	private float inputY;
 
@@ -120,7 +120,7 @@ public class AimInputManager : MonoBehaviour {
 		//照準のリセット
 		if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.LeftShift)) {
 
-			moveSpeed = 0.02f;
+			moveSpeed = 0.05f;
 
 			if (inputX == 0 && inputY == 0) {
 				transform.localPosition = startPos;
@@ -128,7 +128,7 @@ public class AimInputManager : MonoBehaviour {
 		}
 
 		if (Input.GetKeyUp(KeyCode.JoystickButton5)|| Input.GetKey(KeyCode.LeftShift)) {
-			moveSpeed = 0.15f;
+			moveSpeed = 0.18f;
 		}
 
 	}
