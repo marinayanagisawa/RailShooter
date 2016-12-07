@@ -1776,7 +1776,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474380, guid: d88c1e3c12844734399672475e76b959, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2.2
+      value: 3.73
       objectReference: {fileID: 0}
     - target: {fileID: 11497746, guid: d88c1e3c12844734399672475e76b959, type: 2}
       propertyPath: shotLeftText
@@ -1830,6 +1830,10 @@ Prefab:
       propertyPath: mazzle
       value: 
       objectReference: {fileID: 1262078275}
+    - target: {fileID: 474380, guid: d88c1e3c12844734399672475e76b959, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.17
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5426332, guid: d88c1e3c12844734399672475e76b959, type: 2}
     - {fileID: 5408772, guid: d88c1e3c12844734399672475e76b959, type: 2}
