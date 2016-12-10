@@ -1732,7 +1732,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 170228, guid: d88c1e3c12844734399672475e76b959, type: 2}
       propertyPath: m_Name
-      value: Main Camera (2)
+      value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 5408772, guid: d88c1e3c12844734399672475e76b959, type: 2}
       propertyPath: m_Constraints
@@ -3360,6 +3360,33 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &164255273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 164255274}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &164255274
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 164255273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.12, y: -0.008529425, z: -0.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 532408052}
+  m_RootOrder: 0
 --- !u!224 &209670983 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22449720, guid: d762dc40360f7094b9c52fee1b528d64,
@@ -6516,7 +6543,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22496162, guid: e9bf71a617898f84f90b2db11d88bf29, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 22496162, guid: e9bf71a617898f84f90b2db11d88bf29, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -9635,6 +9662,33 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &364344471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 364344472}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &364344472
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 364344471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08, y: -0.067, z: -1.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1083653171}
+  m_RootOrder: 1
 --- !u!1 &366194189
 GameObject:
   m_ObjectHideFlags: 0
@@ -19122,6 +19176,7 @@ Transform:
   m_LocalPosition: {x: -4.900366, y: -0.7984705, z: 8.75}
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_Children:
+  - {fileID: 164255274}
   - {fileID: 1061461275}
   m_Father: {fileID: 862642404}
   m_RootOrder: 1
@@ -19140,8 +19195,10 @@ MonoBehaviour:
   effect: {fileID: 1061461274}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 164255273}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &532408054
 Rigidbody:
@@ -19321,6 +19378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_Children:
   - {fileID: 465650325}
+  - {fileID: 1549622868}
   m_Father: {fileID: 862642404}
   m_RootOrder: 3
 --- !u!114 &642361374
@@ -19338,8 +19396,10 @@ MonoBehaviour:
   effect: {fileID: 465650324}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 1549622867}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &642361375
 Rigidbody:
@@ -19479,6 +19539,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &670539148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 670539149}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670539149
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 670539148}
+  m_LocalRotation: {x: 0, y: -0.70287204, z: 0, w: 0.7113164}
+  m_LocalPosition: {x: 0.32, y: -0.04, z: 0.81}
+  m_LocalScale: {x: 2.4996276, y: 1, z: 0.40006015}
+  m_Children: []
+  m_Father: {fileID: 1153358695}
+  m_RootOrder: 1
 --- !u!4 &691669905 stripped
 Transform:
   m_PrefabParentObject: {fileID: 474380, guid: d88c1e3c12844734399672475e76b959, type: 2}
@@ -26074,6 +26161,7 @@ Transform:
   m_Children:
   - {fileID: 694957494}
   - {fileID: 1508314673}
+  - {fileID: 1057756373}
   m_Father: {fileID: 862642404}
   m_RootOrder: 4
 --- !u!114 &946071404
@@ -26091,8 +26179,10 @@ MonoBehaviour:
   effect: {fileID: 694957493}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 1057756372}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &946071405
 Rigidbody:
@@ -26264,6 +26354,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_Children:
   - {fileID: 2040289146}
+  - {fileID: 1415127657}
   m_Father: {fileID: 862642404}
   m_RootOrder: 0
 --- !u!114 &961587913
@@ -26281,8 +26372,10 @@ MonoBehaviour:
   effect: {fileID: 2040289145}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 1415127656}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &961587914
 Rigidbody:
@@ -26438,7 +26531,7 @@ GameObject:
   - 114: {fileID: 974737831}
   - 114: {fileID: 974737832}
   m_Layer: 0
-  m_Name: MoveObj
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29624,6 +29717,33 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &1057756372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1057756373}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1057756373
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057756372}
+  m_LocalRotation: {x: 0, y: -0.70287204, z: 0, w: 0.7113164}
+  m_LocalPosition: {x: 0.013, y: -0.14847684, z: 0.18}
+  m_LocalScale: {x: 2.499469, y: 1, z: 0.40003487}
+  m_Children: []
+  m_Father: {fileID: 946071403}
+  m_RootOrder: 2
 --- !u!1 &1061461274
 GameObject:
   m_ObjectHideFlags: 0
@@ -29654,7 +29774,7 @@ Transform:
   - {fileID: 385711277}
   - {fileID: 1801282828}
   m_Father: {fileID: 532408052}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!199 &1061461276
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -31229,6 +31349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_Children:
   - {fileID: 454229185}
+  - {fileID: 364344472}
   m_Father: {fileID: 862642404}
   m_RootOrder: 6
 --- !u!114 &1083653172
@@ -31246,8 +31367,10 @@ MonoBehaviour:
   effect: {fileID: 454229184}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 364344471}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &1083653173
 Rigidbody:
@@ -31588,6 +31711,7 @@ Transform:
   m_LocalScale: {x: 1.0000633, y: 1, z: 0.40002525}
   m_Children:
   - {fileID: 802983882}
+  - {fileID: 670539149}
   m_Father: {fileID: 862642404}
   m_RootOrder: 2
 --- !u!114 &1153358696
@@ -31605,8 +31729,10 @@ MonoBehaviour:
   effect: {fileID: 802983881}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 670539148}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &1153358697
 Rigidbody:
@@ -31923,6 +32049,7 @@ Transform:
   m_LocalScale: {x: 1.0000631, y: 1, z: 0.40002507}
   m_Children:
   - {fileID: 487132190}
+  - {fileID: 1913478597}
   m_Father: {fileID: 862642404}
   m_RootOrder: 7
 --- !u!114 &1290986911
@@ -31940,8 +32067,10 @@ MonoBehaviour:
   effect: {fileID: 487132189}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 1913478596}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &1290986912
 Rigidbody:
@@ -33700,6 +33829,33 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &1415127656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1415127657}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1415127657
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415127656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.07, y: 0.011470079, z: -1.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 961587912}
+  m_RootOrder: 1
 --- !u!1 &1442358410
 GameObject:
   m_ObjectHideFlags: 0
@@ -33764,7 +33920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1508314673
 Transform:
   m_ObjectHideFlags: 0
@@ -36842,6 +36998,60 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &1548760019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1548760020}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1548760020
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1548760019}
+  m_LocalRotation: {x: 0, y: -0.70287204, z: 0, w: 0.7113164}
+  m_LocalPosition: {x: 0.03, y: -0.07, z: 0.38}
+  m_LocalScale: {x: 2.499628, y: 1, z: 0.40006018}
+  m_Children: []
+  m_Father: {fileID: 1951928170}
+  m_RootOrder: 1
+--- !u!1 &1549622867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1549622868}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1549622868
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1549622867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 642361373}
+  m_RootOrder: 1
 --- !u!1 &1563827780 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 107686, guid: d88c1e3c12844734399672475e76b959, type: 2}
@@ -43494,6 +43704,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1897134871}
+--- !u!1 &1913478596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1913478597}
+  m_Layer: 8
+  m_Name: ShotPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1913478597
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1913478596}
+  m_LocalRotation: {x: 0, y: -0.70287204, z: 0, w: 0.7113164}
+  m_LocalPosition: {x: 0.04, y: 0.05, z: 0.9}
+  m_LocalScale: {x: 2.4996288, y: 1, z: 0.40006024}
+  m_Children: []
+  m_Father: {fileID: 1290986910}
+  m_RootOrder: 1
 --- !u!1 &1951928169
 GameObject:
   m_ObjectHideFlags: 0
@@ -43526,6 +43763,7 @@ Transform:
   m_LocalScale: {x: 1.0000632, y: 1, z: 0.40002516}
   m_Children:
   - {fileID: 223855710}
+  - {fileID: 1548760020}
   m_Father: {fileID: 862642404}
   m_RootOrder: 5
 --- !u!114 &1951928171
@@ -43543,8 +43781,10 @@ MonoBehaviour:
   effect: {fileID: 223855709}
   gc: {fileID: 0}
   player: {fileID: 974737824}
-  moveStartDis: 7
   sound: {fileID: 0}
+  shotPosition: {fileID: 1548760019}
+  enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
+  isShot: 0
   enemyScore: 10
 --- !u!54 &1951928172
 Rigidbody:

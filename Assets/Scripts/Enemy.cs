@@ -8,8 +8,12 @@ public class Enemy : MonoBehaviour {
 	public GameObject player;
 	private Vector3 playerPos;
 	private Vector3 enemyPos;
-	public float moveStartDis = 7.0f;
+	private float moveStartDis = 3.0f;
 	public AudioSource sound;
+	public GameObject shotPosition;
+	public GameObject enemyShot;
+
+	public bool isShot = false;
 
 	public int enemyScore = 10;
 
@@ -26,7 +30,10 @@ public class Enemy : MonoBehaviour {
 		float dis = Vector3.Distance (playerPos, enemyPos);
 		if (dis < moveStartDis) {
 			//Debug.Log (gameObject.name + "との距離" + dis);
-
+			if (!isShot) {
+				shot ();
+				isShot = true;
+			}
 			//敵の移動をタイプ別に関数にまとめてここで呼ぶ
 		}
 
@@ -56,5 +63,11 @@ public class Enemy : MonoBehaviour {
 
 	//移動
 	//ショット
+
+	void shot(){
+
+		Instantiate (enemyShot, shotPosition.transform.position, shotPosition.transform.rotation);
+
+	}
 	
 }
