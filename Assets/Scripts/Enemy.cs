@@ -8,12 +8,15 @@ public class Enemy : MonoBehaviour {
 	public GameObject player;
 	private Vector3 playerPos;
 	private Vector3 enemyPos;
-	private float moveStartDis = 3.0f;
+	private float moveStartDis = 7.0f;
+	private float shotDis = 4.0f;
 	public AudioSource sound;
 	public GameObject shotPosition;
 	public GameObject enemyShot;
+	public LayerMask layerMask;
 
-	public bool isShot = false;
+	public bool aleadyShot = false;
+	private bool enemyDead = false;
 
 	public int enemyScore = 10;
 
@@ -28,25 +31,34 @@ public class Enemy : MonoBehaviour {
 		enemyPos = this.transform.position;
 
 		float dis = Vector3.Distance (playerPos, enemyPos);
+
 		if (dis < moveStartDis) {
-			//Debug.Log (gameObject.name + "との距離" + dis);
-			if (!isShot) {
-				shot ();
-				isShot = true;
-			}
-			//敵の移動をタイプ別に関数にまとめてここで呼ぶ
+			
 		}
+
+		if (dis < shotDis) {
+			//Debug.Log (gameObject.name + "との距離" + dis);
+
+			//とりあえず1回撃ってみる
+			if (!enemyDead) {
+				if (!aleadyShot) {
+					Shot();
+					aleadyShot = true;
+				}
+			}
+		}
+
 
 	}
 
 	void OnTriggerEnter(Collider col){
 
-		sound.PlayOneShot (sound.clip);
-		transform.FindChild("Explosion").GetComponent<ParticleSystem> ().Play();
-		DestroyEff (effect);
-		gc.addScore(enemyScore);
-		EleaseAndDestroy ();
-
+			sound.PlayOneShot(sound.clip);
+			transform.FindChild("Explosion").GetComponent<ParticleSystem>().Play();
+			DestroyEff(effect);
+			gc.addScore(enemyScore);
+			EleaseAndDestroy();
+		
 	}
 		
 	void DestroyEff(GameObject eff){
@@ -55,6 +67,7 @@ public class Enemy : MonoBehaviour {
 
 
 	void EleaseAndDestroy(){
+		enemyDead = true;
 		GetComponent<MeshRenderer> ().enabled = false;
 		GetComponent<BoxCollider> ().enabled = false;
 		Destroy (this.gameObject, 1.5f);
@@ -62,9 +75,9 @@ public class Enemy : MonoBehaviour {
 
 
 	//移動
+	
 	//ショット
-
-	void shot(){
+	void Shot(){
 
 		Instantiate (enemyShot, shotPosition.transform.position, shotPosition.transform.rotation);
 
