@@ -14,17 +14,45 @@ public class GunDirection : MonoBehaviour {
 
 		this.transform.LookAt (aim.transform);
 
+		
+
 
 		//敵に当たると照準の色が変わる
 		Ray ray = new Ray (mazzle.transform.position, transform.forward);
 		RaycastHit hit;
 
+		if (Physics.Raycast(ray, out hit, 15.0f)) {
+
+			//hitの情報を取得する
+			int hitLayer = hit.collider.gameObject.layer;
+
+			if (LayerMask.LayerToName(hitLayer) == "Enemy") {
+
+				aimPoint.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
+
+
+			} else {
+				aimPoint.GetComponent<Image>().color = new Color(0.0f, 1f, 1f, 0.5f);
+			}
+
+			
+		} else {
+			aimPoint.GetComponent<Image>().color = new Color(0.0f, 1f, 1f, 0.5f);
+		}
+		
+
+	
+		}
+
+	
+
+/*
 		if (Physics.Raycast (ray, out hit, 15.0f, layerMask)) {
 			aimPoint.GetComponent<Image> ().color = new Color (1f, 0.0f, 0.0f, 0.5f);
 		} else {
 			aimPoint.GetComponent<Image> ().color = new Color (0.0f, 1f, 1f, 0.5f);
 		}
-
+*/
 
 	/*
 		//とりあえずtargetは手動で設定してテスト　(取得方法は後で)
@@ -42,5 +70,5 @@ public class GunDirection : MonoBehaviour {
 
 		*/
 	
-	}
+	
 }
