@@ -10,7 +10,8 @@ using System.Collections;
 
 public class PlayerShotFollow : MonoBehaviour {
 
-	private float shotSpeed = 0.4f;
+	//private float shotSpeed = 0.4f;
+	private float shotPower = 30;
 	private float lifeTime = 2.0f;
 
 	//銃のAimオブジェクトを紐づけ
@@ -19,12 +20,14 @@ public class PlayerShotFollow : MonoBehaviour {
 	void Start () {
 		aim = GameObject.Find ("aim");
 		this.transform.LookAt (aim.transform);
+		Destroy(this.gameObject, lifeTime);
+		this.GetComponent<Rigidbody>().velocity = transform.forward * shotPower;
 	}
 
 	void Update () {
 
-		this.transform.Translate (0, 0, shotSpeed);
-		Destroy (this.gameObject, lifeTime);
+		//this.transform.Translate (0, 0, shotSpeed);
+	
 	}
 
 	void OnTriggerEnter(Collider col){

@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
 	public bool gameFlg;
 	public Text scoreText;
 	public Text pauseText;
+	public Text startText;
 
 	public int totalScore;
 	public int beatNum = 0;
@@ -24,13 +25,13 @@ public class GameController : MonoBehaviour {
 
 		//ポーズ
 		if (!isPause) {
-			if (Input.GetKeyDown(KeyCode.S)) {
+			if ((Input.GetKeyDown(KeyCode.P)) || Input.GetKeyDown(KeyCode.JoystickButton7)) {
 				pauseText.text = "PAUSE";
 				Time.timeScale = 0;
 				isPause = true;
 			}
 		} else {
-			if (Input.GetKeyDown(KeyCode.S)) {
+			if ((Input.GetKeyDown(KeyCode.P)) || Input.GetKeyDown(KeyCode.JoystickButton7)) {
 				pauseText.text = "";
 				Time.timeScale = 1;
 				isPause = false;
