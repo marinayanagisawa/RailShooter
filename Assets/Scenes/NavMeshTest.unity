@@ -29609,11 +29609,11 @@ Prefab:
       objectReference: {fileID: 691669905}
     - target: {fileID: 22478002, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22478002, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
@@ -29858,12 +29858,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbead13aa562a54a9b4528787a4d000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameFlg: 0
   scoreText: {fileID: 1897134873}
   pauseText: {fileID: 424080533}
   startText: {fileID: 2028264025}
-  totalScore: 0
-  beatNum: 0
   isPause: 0
 --- !u!1 &1217925864 stripped
 GameObject:

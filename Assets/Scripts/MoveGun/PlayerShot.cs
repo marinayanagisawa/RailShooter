@@ -13,6 +13,10 @@ public class PlayerShot : MonoBehaviour {
 	private float shotSpeed = 0.5f;
 	private float lifeTime = 2.0f;
 
+	void Start(){
+		LocalValues.shotNum++;
+	}
+
 	void Update () {
 	
 		this.transform.Translate (0, 0, shotSpeed);

@@ -4,19 +4,16 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-	public bool gameFlg;
 	public Text scoreText;
 	public Text pauseText;
 	public Text startText;
 
-	public int totalScore;
-	public int beatNum = 0;
 	public bool isPause = false;
 
 
 	void Start () {
 
-		gameFlg = true;
+		LocalValues.gameFlg = true;
 
 	}
 	
@@ -29,6 +26,7 @@ public class GameController : MonoBehaviour {
 				pauseText.text = "PAUSE";
 				Time.timeScale = 0;
 				isPause = true;
+				Debug.Log ("B"+LocalValues.beatNum +" S"+LocalValues.shotNum);
 			}
 		} else {
 			if ((Input.GetKeyDown(KeyCode.P)) || Input.GetKeyDown(KeyCode.JoystickButton7)) {
@@ -43,9 +41,10 @@ public class GameController : MonoBehaviour {
 
 	public void addScore(int score) {
 
-		totalScore += score;
-		scoreText.text = "Score" + totalScore;
-		beatNum++;
+		LocalValues.totalScore += score;
+		scoreText.text = "Score" + LocalValues.totalScore;
+		LocalValues.beatNum++;
+	
 	}
 
 	//クリアリザルト処理

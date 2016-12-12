@@ -22,6 +22,7 @@ public class PlayerShotFollow : MonoBehaviour {
 		this.transform.LookAt (aim.transform);
 		Destroy(this.gameObject, lifeTime);
 		this.GetComponent<Rigidbody>().velocity = transform.forward * shotPower;
+		LocalValues.shotNum++;
 	}
 
 	void Update () {
