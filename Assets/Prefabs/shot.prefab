@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11432988}
   - 54: {fileID: 5442952}
   - 65: {fileID: 6565184}
+  - 122: {fileID: 12291558}
   m_Layer: 0
   m_Name: shot
   m_TagString: Untagged
@@ -103,6 +104,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e417fe6f077b44f8032b7851a171ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!122 &12291558
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124084}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294901811
+  m_Size: 0.6
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
