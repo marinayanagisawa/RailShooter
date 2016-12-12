@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
 	public bool aleadyShot = false;
 	private bool enemyDead = false;
 
-	public int enemyScore = 10;
+	private int enemyScore = 100;
 
 	void Start() {
 		gc = GameObject.Find("GameController").GetComponent<GameController>();

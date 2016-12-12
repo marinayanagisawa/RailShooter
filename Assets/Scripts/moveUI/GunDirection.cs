@@ -25,8 +25,10 @@ public class GunDirection : MonoBehaviour {
 
 			//hitの情報を取得する
 			int hitLayer = hit.collider.gameObject.layer;
+			string layerMask;
+			layerMask = LayerMask.LayerToName (hitLayer);
 
-			if (LayerMask.LayerToName(hitLayer) == "Enemy") {
+			if ((layerMask == "Enemy") ||(layerMask == "EnemyShot")) {
 
 				aimPoint.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
 
