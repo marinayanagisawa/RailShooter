@@ -58,7 +58,8 @@ public class AimInputManager : MonoBehaviour {
 
 		shotImage[shotLeft].GetComponent<Image>().enabled = true;
 
-
+		if (!gc.isPause) {
+			
 		//aimオブジェクトが画面内なら,現在地を記憶して移動,更に移動直後に画面外に出たら,同フレーム内で記憶していた場所に戻る
 		if (ViewPointCheck()) {
 
@@ -73,9 +74,8 @@ public class AimInputManager : MonoBehaviour {
 			} else {
 				aim.position = currentPos;
 			}
-
-
-		if (!gc.isPause) {
+				
+		//if (!gc.isPause) {
 
 			//発射！
 			if (shotLeft > 0 && canShot) {
