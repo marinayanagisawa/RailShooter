@@ -8,9 +8,11 @@ public class EnemyShot : MonoBehaviour {
 	private int score = 1000;
 	private GameController gc;
 	public GameObject par;
+	//private GameObject playerCol;
 
 	void Start(){
 
+		//playerCol = GameObject.Find ("playerCollider");
 		gc = GameObject.Find("GameController").GetComponent<GameController>();
 		Destroy(this.gameObject, lifeTime);
 
@@ -19,7 +21,7 @@ public class EnemyShot : MonoBehaviour {
 	void Update () {
 
 		this.transform.position = Vector3.MoveTowards(transform.position, Camera.main.transform.position, shotSpeed * Time.deltaTime);
-		
+		//this.transform.position = Vector3.MoveTowards(transform.position, playerCol.transform.position, shotSpeed * Time.deltaTime);
 	}
 
 	
