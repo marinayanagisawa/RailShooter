@@ -40,7 +40,6 @@ public class AimInputManager : MonoBehaviour {
 		sounds = GetComponents<AudioSource>();
 		gc = GameObject.Find("GameController").GetComponent<GameController>();
 
-
 	}
 
 	void Update () {
@@ -48,7 +47,7 @@ public class AimInputManager : MonoBehaviour {
 		inputX = Input.GetAxis("Horizontal");
 		inputY = Input.GetAxis("Vertical");
 
-
+		//Aimオブジェクトをカメラを中心に移動させるため
 		transform.LookAt(Camera.main.transform);
 
 		//残弾表示
@@ -59,7 +58,7 @@ public class AimInputManager : MonoBehaviour {
 		shotImage[shotLeft].GetComponent<Image>().enabled = true;
 
 		if (!gc.isPause) {
-			
+		//移動処理	
 		//aimオブジェクトが画面内なら,現在地を記憶して移動,更に移動直後に画面外に出たら,同フレーム内で記憶していた場所に戻る
 		if (ViewPointCheck()) {
 
@@ -68,14 +67,13 @@ public class AimInputManager : MonoBehaviour {
 
 				if (!ViewPointCheck()) {
 					aim.position = currentPos;
-				}
 
+				}
 				//aimオブジェクトが画面外に出たら,前フレームで記憶していた場所に戻る
 			} else {
 				aim.position = currentPos;
 			}
-				
-		//if (!gc.isPause) {
+
 
 			//発射！
 			if (shotLeft > 0 && canShot) {
@@ -112,11 +110,8 @@ public class AimInputManager : MonoBehaviour {
 			if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.LeftShift)) {
 				moveSpeed = 0.18f;
 			}
-
 		}
 	}
-
-
 
 
 	//aimオブジェクトが画面内にいたらTrueが返る
@@ -143,32 +138,10 @@ public class AimInputManager : MonoBehaviour {
 
 	IEnumerator Reload() {
 		
-		//------------リロード音追加
 		canShot = false;
 		yield return new WaitForSeconds(1.5f);
 		shotLeft = 5;
 		canShot = true;
-
 	}
-
-
-		/*
-				if (!reversal) {
-
-					pos = new Vector3(transform.localPosition.x + (inputX * moveSpeed), transform.localPosition.y + (inputY * moveSpeed), transform.position.z);
-				} else {
-					pos = new Vector3(transform.localPosition.x + (inputX * -moveSpeed), transform.localPosition.y + (inputY * -moveSpeed), transform.position.z);
-
-
-
-				}
-				//this.transform.localPosition = pos;
-
-				//transform.RotateAround(Camera.main.transform.position, Vector3.up, inputX * Time.deltaTime * 200f);
-				//transform.RotateAround(Camera.main.transform.position, transform.right, inputY * Time.deltaTime * 200f);
-
-			*/
-
-
 
 }

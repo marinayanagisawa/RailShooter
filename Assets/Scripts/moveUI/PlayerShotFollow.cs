@@ -10,7 +10,6 @@ using System.Collections;
 
 public class PlayerShotFollow : MonoBehaviour {
 
-	//private float shotSpeed = 0.4f;
 	private float shotPower = 30;
 	private float lifeTime = 2.0f;
 
@@ -24,13 +23,7 @@ public class PlayerShotFollow : MonoBehaviour {
 		this.GetComponent<Rigidbody>().velocity = transform.forward * shotPower;
 		LocalValues.shotNum++;
 	}
-
-	void Update () {
-
-		//this.transform.Translate (0, 0, shotSpeed);
-	
-	}
-
+		
 	void OnTriggerEnter(Collider col){
 		Destroy (this.gameObject);
 	}
