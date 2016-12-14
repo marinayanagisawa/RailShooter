@@ -8,7 +8,7 @@ public class GunDirection : MonoBehaviour {
 	public GameObject mazzle;
 	public LayerMask layerMask;
 	public GameObject aimPoint;
-	public GameObject target;
+	//public GameObject target;
 
 	void Update () {
 
