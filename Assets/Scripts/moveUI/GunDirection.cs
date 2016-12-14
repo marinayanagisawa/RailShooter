@@ -21,7 +21,7 @@ public class GunDirection : MonoBehaviour {
 		Ray ray = new Ray (mazzle.transform.position, transform.forward);
 		RaycastHit hit;
 
-		if (Physics.Raycast(ray, out hit, 15.0f)) {
+		if (Physics.Raycast(ray, out hit, 30.0f)) {
 
 			//hitの情報を取得する
 			int hitLayer = hit.collider.gameObject.layer;
