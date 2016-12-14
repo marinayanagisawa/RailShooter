@@ -4,13 +4,13 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 	
 	public GameObject effect;
-	public GameController gc;
-	public GameObject player;
+	private GameController gc;
+	private GameObject player;
 	private Vector3 playerPos;
 	private Vector3 enemyPos;
-	private float moveStartDis = 7.0f;
-	private float shotDis = 4.0f;
-	public AudioSource sound;
+	public float moveStartDis = 7.0f;
+	public float shotDis = 4.0f;
+	private AudioSource sound;
 	public GameObject shotPosition;
 	public GameObject enemyShot;
 	public LayerMask layerMask;
@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour {
 
 	void Start() {
 		gc = GameObject.Find("GameController").GetComponent<GameController>();
+		player = GameObject.Find ("Player");
 		sound = GetComponent<AudioSource> ();
 	}
 
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour {
 		float dis = Vector3.Distance (playerPos, enemyPos);
 
 		if (dis < moveStartDis) {
-			
+			this.transform.LookAt (player.transform.position);
 		}
 
 		if (dis < shotDis) {
@@ -68,7 +69,8 @@ public class Enemy : MonoBehaviour {
 
 	void EleaseAndDestroy(){
 		enemyDead = true;
-		GetComponent<MeshRenderer> ().enabled = false;
+		//GetComponent<MeshRenderer> ().enabled = false;
+		transform.FindChild("PA_Warrior").transform.position = new Vector3(-1000.0f,-1000.0f,-1000.0f);
 		GetComponent<BoxCollider> ().enabled = false;
 		Destroy (this.gameObject, 1.5f);
 	}
