@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour {
 	private AudioSource sound;
 	public GameObject shotPosition;
 	public GameObject enemyShot;
-	public LayerMask layerMask;
+	//public LayerMask layerMask;
 
 	public bool aleadyShot = false;
 	private bool enemyDead = false;
@@ -53,13 +53,18 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col){
-
-			sound.PlayOneShot(sound.clip);
-			transform.FindChild("Explosion").GetComponent<ParticleSystem>().Play();
-			DestroyEff(effect);
-			gc.addScore(enemyScore);
-			EleaseAndDestroy();
+		int hitlayer = col.gameObject.layer;
+		if (LayerMask.LayerToName (hitlayer) == "PlayerShot") {
+			sound.PlayOneShot (sound.clip);
+			transform.FindChild ("Explosion").GetComponent<ParticleSystem> ().Play ();
+			DestroyEff (effect);
+			gc.addScore (enemyScore);
+			EleaseAndDestroy ();
 		
+		} else {
+			//プレイヤーと当たった場合
+			EleaseAndDestroy ();
+		}
 	}
 		
 	void DestroyEff(GameObject eff){
