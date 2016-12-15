@@ -589,8 +589,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0.25, z: 0.24500021}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
   m_Children: []
-  m_Father: {fileID: 479938}
-  m_RootOrder: 2
+  m_Father: {fileID: 422794}
+  m_RootOrder: 0
 --- !u!4 &411256
 Transform:
   m_ObjectHideFlags: 1
@@ -696,7 +696,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 401706}
   m_Father: {fileID: 479938}
   m_RootOrder: 0
 --- !u!4 &426804
@@ -978,7 +979,6 @@ Transform:
   m_Children:
   - {fileID: 422794}
   - {fileID: 411760}
-  - {fileID: 401706}
   m_Father: {fileID: 486032}
   m_RootOrder: 0
 --- !u!4 &481474
@@ -1060,7 +1060,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 10
   m_CollisionDetection: 2
 --- !u!65 &6523748
 BoxCollider:
@@ -1072,8 +1072,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.2, z: 2.5}
-  m_Center: {x: 0, y: 0.6, z: -0.5}
+  m_Size: {x: 2, y: 1.3, z: 2.5}
+  m_Center: {x: 0, y: 0.7, z: -0.5}
 --- !u!82 &8290250
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1157,7 +1157,7 @@ Animator:
   m_GameObject: {fileID: 146762}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cc633396b5f95da4b916357a5508ee4f, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72fe90a0ba74f014cabd57ae88d5bbe7, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1181,9 +1181,6 @@ MonoBehaviour:
   shotDis: 15
   shotPosition: {fileID: 194778}
   enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
   aleadyShot: 0
 --- !u!137 &13766942
 SkinnedMeshRenderer:

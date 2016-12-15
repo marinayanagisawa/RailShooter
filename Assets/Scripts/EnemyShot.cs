@@ -32,6 +32,8 @@ public class EnemyShot : MonoBehaviour {
 			PlayParticle (col.gameObject);
 			Destroy (this.gameObject);
 			gc.addScore (score);
+		} else {
+			Destroy (this.gameObject);
 		}
 	}
 

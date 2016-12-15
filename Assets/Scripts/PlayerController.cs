@@ -8,8 +8,12 @@ public class PlayerController : MonoBehaviour {
 	public Slider slider;
 	private AudioSource hitSound;
 	public GameObject cam;
+	private Vector3 cameraPos;
 
 	void Start () {
+
+		cameraPos = Camera.main.transform.localPosition;
+			
 		//--------------ゲームフラグを確認してから移動スタートさせる
 
 		slider.GetComponent<Slider>();
@@ -35,12 +39,29 @@ public class PlayerController : MonoBehaviour {
 		hitSound.PlayOneShot(hitSound.clip);
 		iTween.ShakePosition (cam, iTween.Hash ("x", 0.2f, "y", 0.2f, "time", 0.4f));
 
+		Invoke ("CamPosCheck", 0.5f);
+		/*
+		Vector3 afterHitPos = Camera.main.transform.localPosition;
+		if (cameraPos != afterHitPos) {
+			Camera.main.transform.localPosition = cameraPos;
+		}
+*/
 		if (hp > 0) {
 			hp--;
 		}
 		
 	}
 		
+
+	void CamPosCheck(){
+		Debug.Log ("カメラ位置修正");
+		Vector3 afterHitPos = Camera.main.transform.localPosition;
+		if (cameraPos != afterHitPos) {
+			Camera.main.transform.localPosition = cameraPos;
+		}
+
+
+	}
 
 	public void CameraTurn(int euler){
 		//Y軸のプラス（マイナス）に進む時は,0（180）で正面,90（270）で右向き,270（90）で左向き
@@ -62,18 +83,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Keypad4)) {
 			CameraTurn (270);
 		}
-		if (Input.GetKeyDown (KeyCode.Keypad9)) {
-			CameraTurn (45);
-		}
-		if (Input.GetKeyDown (KeyCode.Keypad3)) {
-			CameraTurn (135);
-		}
-		if (Input.GetKeyDown (KeyCode.Keypad1)) {
-			CameraTurn (225);
-		}
-		if (Input.GetKeyDown (KeyCode.Keypad7)) {
-			CameraTurn (315);
-		}
+
 	}
 
 }
