@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour {
 		float dis = Vector3.Distance (playerPos, enemyPos);
 
 		if (dis < moveStartDis) {
-			this.transform.LookAt (player.transform.position);
+		//	this.transform.LookAt (player.transform.position);
 		}
 
 		if (dis < shotDis) {
