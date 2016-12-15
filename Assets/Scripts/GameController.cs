@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour {
 	public void addScore(int score) {
 
 		LocalValues.totalScore += score;
-		scoreText.text = "Score" + LocalValues.totalScore;
+		scoreText.text = "SCORE" + LocalValues.totalScore;
 		LocalValues.beatNum++;
 	
 	}

@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 		hitSound.PlayOneShot(hitSound.clip);
 		iTween.ShakePosition (cam, iTween.Hash ("x", 0.2f, "y", 0.2f, "time", 0.4f));
 
-		Invoke ("CamPosCheck", 0.5f);
+		Invoke ("CamPosCheck", 0.6f);
 		/*
 		Vector3 afterHitPos = Camera.main.transform.localPosition;
 		if (cameraPos != afterHitPos) {
