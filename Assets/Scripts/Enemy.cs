@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 	
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour {
 		if (dis < shotDis) {
 			//Debug.Log (gameObject.name + "との距離" + dis);
 
-			//とりあえず1回撃ってみる
+			//射程に入ったら,1回撃つ
 			if (!enemyDead) {
 				if (!aleadyShot) {
 					Shot();
