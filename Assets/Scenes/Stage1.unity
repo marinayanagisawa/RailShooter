@@ -286,6 +286,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11458672, guid: e6a342f3870fe5848b6930e4b582a38a, type: 2}
+      propertyPath: walk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458672, guid: e6a342f3870fe5848b6930e4b582a38a, type: 2}
+      propertyPath: moveStartDis
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6a342f3870fe5848b6930e4b582a38a, type: 2}
   m_IsPrefabParent: 0
@@ -1194,7 +1202,7 @@ Prefab:
       objectReference: {fileID: 1051272568}
     - target: {fileID: 22478002, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11447342, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_FontData.m_Font
@@ -1215,7 +1223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22478002, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11442960, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_Value
@@ -1321,6 +1329,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1205237124 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 184120, guid: e6a342f3870fe5848b6930e4b582a38a, type: 2}
+  m_PrefabInternal: {fileID: 106929308}
+--- !u!95 &1205237130
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205237124}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 306ad9a71f4a8df46902fb9c66be99bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1212617492
 GameObject:
   m_ObjectHideFlags: 0

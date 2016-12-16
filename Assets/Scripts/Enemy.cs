@@ -7,36 +7,50 @@ public class Enemy : MonoBehaviour {
 	public GameObject effect;
 	private GameController gc;
 	private GameObject player;
+
 	private Vector3 playerPos;
 	private Vector3 enemyPos;
+
 	public float moveStartDis = 7.0f;
 	public float shotDis = 4.0f;
+
 	private AudioSource sound;
 	public GameObject shotPosition;
 	public GameObject enemyShot;
-	//public LayerMask layerMask;
 
 	public bool aleadyShot = false;
+	public bool walk = false;
+	private Animator moveAnim;
+
 	private bool enemyDead = false;
 
 	private int enemyScore = 100;
 
+
 	void Start() {
+		moveAnim = GetComponent<Animator> ();
 		gc = GameObject.Find("GameController").GetComponent<GameController>();
 		player = GameObject.Find ("Player");
 		sound = GetComponent<AudioSource> ();
 	}
 
 	void Update(){
-		
+
+		//距離を測って活動
 		playerPos = player.transform.position;
 		enemyPos = this.transform.position;
 
 		float dis = Vector3.Distance (playerPos, enemyPos);
 
-		if (dis < moveStartDis) {
-		//	this.transform.LookAt (player.transform.position);
+
+		if (walk) {
+			if (dis < moveStartDis) {
+				//前方に移動
+				//iTween.MoveTo(this.gameObject, iTween.Hash("x", 10.0f, "time", 5.0f));
+				moveAnim.SetTrigger("Move");
+			}
 		}
+
 
 		if (dis < shotDis) {
 			//Debug.Log (gameObject.name + "との距離" + dis);
@@ -49,12 +63,13 @@ public class Enemy : MonoBehaviour {
 				}
 			}
 		}
-
-
 	}
 
 	void OnTriggerEnter(Collider col){
+		
 		int hitlayer = col.gameObject.layer;
+
+		//プレイヤーの弾と衝突した処理（爆発音,パーティクルの呼び出しと消去,スコア加算,オブジェクト消去）
 		if (LayerMask.LayerToName (hitlayer) == "PlayerShot") {
 			sound.PlayOneShot (sound.clip);
 			transform.FindChild ("Explosion").GetComponent<ParticleSystem> ().Play ();
@@ -63,11 +78,12 @@ public class Enemy : MonoBehaviour {
 			EleaseAndDestroy ();
 		
 		} else {
-			//プレイヤーと当たった場合
+			//プレイヤーと当たった場合は消える
 			EleaseAndDestroy ();
 		}
 	}
 		
+	//爆発
 	void DestroyEff(GameObject eff){
 		Destroy (eff, 0.7f);
 	}
@@ -82,13 +98,15 @@ public class Enemy : MonoBehaviour {
 	}
 
 
-	//移動
-	
 	//ショット
 	void Shot(){
 
 		Instantiate (enemyShot, shotPosition.transform.position, shotPosition.transform.rotation);
 
+	}
+
+	void Destroy(){
+		Destroy (this.gameObject);
 	}
 	
 }
