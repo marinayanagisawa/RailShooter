@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour {
 	public GameObject cam;
 	private Vector3 cameraPos;
 
+	public GameObject hpBack;
+	public GameObject hpFore;
+	public GameObject hpText;
+
 	void Start () {
 
 		cameraPos = Camera.main.transform.localPosition;
@@ -26,6 +30,12 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		//HPを表示
 		slider.value = hp;
+
+		if (hp < 2) {
+			hpBack.GetComponent<Image> ().color = new Color(1f, 0.0f, 0.0f, 0.5f);
+			hpFore.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
+			hpText.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
+		}
 
 		//ステージ作成時のテスト用
 		RotateTest ();
