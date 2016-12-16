@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 	
 		hitSound = GetComponent<AudioSource> ();
 
+
 	}
 	
 	void Update () {
@@ -44,22 +45,26 @@ public class PlayerController : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider col) {
+		string layerMask = LayerMask.LayerToName (col.gameObject.layer);
 
-		//enemyShotとヒットしたときの処理(音,画面揺れ,HP計算)
-		hitSound.PlayOneShot(hitSound.clip);
-		iTween.ShakePosition (cam, iTween.Hash ("x", 0.2f, "y", 0.2f, "time", 0.4f));
+		if ((layerMask == "Enemy")||(layerMask == "EnemyShot")){
 
-		Invoke ("CamPosCheck", 0.6f);
-		/*
+			//enemyShotとヒットしたときの処理(音,画面揺れ,HP計算)
+			hitSound.PlayOneShot (hitSound.clip);
+			iTween.ShakePosition (cam, iTween.Hash ("x", 0.2f, "y", 0.2f, "time", 0.4f));
+
+			Invoke ("CamPosCheck", 0.6f);
+			/*
 		Vector3 afterHitPos = Camera.main.transform.localPosition;
 		if (cameraPos != afterHitPos) {
 			Camera.main.transform.localPosition = cameraPos;
 		}
 */
-		if (hp > 0) {
-			hp--;
+			if (hp > 0) {
+				hp--;
+			}
+
 		}
-		
 	}
 		
 

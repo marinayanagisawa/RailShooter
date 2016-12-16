@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour {
 
 	private bool enemyDead = false;
 
-	private int enemyScore = 100;
+	public int enemyScore = 100;
 
 
 	void Start() {
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour {
 			gc.addScore (enemyScore);
 			EleaseAndDestroy ();
 		
-		} else {
+		} else if(LayerMask.LayerToName (hitlayer) == "Player") {
 			//プレイヤーと当たった場合は消える
 			EleaseAndDestroy ();
 		}
