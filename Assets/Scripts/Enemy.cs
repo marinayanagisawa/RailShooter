@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour {
 		if (walk) {
 			if (dis < moveStartDis) {
 				//前方に移動
-				//iTween.MoveTo(this.gameObject, iTween.Hash("x", 10.0f, "time", 5.0f));
 				moveAnim.SetTrigger("Move");
 			}
 		}
@@ -100,11 +99,10 @@ public class Enemy : MonoBehaviour {
 
 	//ショット
 	void Shot(){
-
 		Instantiate (enemyShot, shotPosition.transform.position, shotPosition.transform.rotation);
-
 	}
 
+	//アニメーションから使用
 	void Destroy(){
 		Destroy (this.gameObject);
 	}
