@@ -18,8 +18,12 @@ public class GameController : MonoBehaviour {
 
 	public Text centerText;
 	public Text title;
-	public Text totalScore;
+	public Text score;
+	public Text life;
 	public Text beat;
+	public Text Shot;
+	public Text totalScore;
+	public Text hitPer;
 
 
 	void Start() {
@@ -107,11 +111,28 @@ public class GameController : MonoBehaviour {
 	IEnumerator Result() {
 
 		yield return new WaitForSeconds(0.5f);
-		
-		totalScore.text = "SCORE  " + LocalValues.totalScore;
+		score.text = LocalValues.totalScore.ToString();
 
-		beat.text = "BEAT " + LocalValues.beatNum;
+		yield return new WaitForSeconds(0.5f);
+		int l = pc.hp * 1000;
+		life.text =  l.ToString();
 
+		yield return new WaitForSeconds(0.5f);
+		beat.text = LocalValues.beatNum.ToString();
+
+		yield return new WaitForSeconds(0.5f);
+		Shot.text = LocalValues.shotNum.ToString();
+
+		yield return new WaitForSeconds(0.5f);
+		int t = (LocalValues.totalScore + pc.hp * 1000);
+		totalScore.text = t.ToString();
+
+		yield return new WaitForSeconds(0.5f);
+		float h = (float)LocalValues.beatNum / (float)LocalValues.shotNum;
+		h = (int)h * 100;
+		hitPer.text =  h + "%";
+	
+	
 	}
 	
 }
