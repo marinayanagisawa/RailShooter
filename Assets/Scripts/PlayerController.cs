@@ -38,6 +38,17 @@ public class PlayerController : MonoBehaviour {
 			hpText.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
 		}
 
+
+		if (Input.GetKeyDown(KeyCode.Q)) {
+			GetComponent<NavMeshAgent>().Stop();
+		}
+
+		if (Input.GetKeyDown(KeyCode.W)) {
+			GetComponent<NavMeshAgent>().Resume();
+		}
+
+
+
 		//ステージ作成時のテスト用
 		RotateTest ();
 
@@ -75,8 +86,17 @@ public class PlayerController : MonoBehaviour {
 			Camera.main.transform.localPosition = cameraPos;
 		}
 
-
 	}
+
+
+
+
+
+
+
+
+
+
 
 	public void CameraTurn(int euler){
 		//Y軸のプラス（マイナス）に進む時は,0（180）で正面,90（270）で右向き,270（90）で左向き
