@@ -21,7 +21,7 @@ public class AimInputManager : MonoBehaviour {
 	public Transform aim;
 
 	//スティック用反転入力オン
-	public bool reversal= true;
+	//public bool reversal= true;
 
 	private Vector3 pos;
 	private Vector3 aimPos;
@@ -132,7 +132,7 @@ public class AimInputManager : MonoBehaviour {
 
 	void MoveTarget() {
 
-		if (!reversal) {
+		if (!LocalValues.reversal) {
 			transform.localPosition = new Vector3(transform.localPosition.x + (inputX * moveSpeed), transform.localPosition.y + (inputY * moveSpeed), transform.localPosition.z);
 		} else {
 			transform.localPosition = new Vector3(transform.localPosition.x + (inputX * -moveSpeed), transform.localPosition.y + (inputY * -moveSpeed), transform.localPosition.z);

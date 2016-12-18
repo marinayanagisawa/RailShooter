@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
 	public Text centerText;
 	public Text title;
 	public Text totalScore;
-	
+	public Text beat;
 
 
 	void Start() {
@@ -109,6 +109,8 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		
 		totalScore.text = "SCORE  " + LocalValues.totalScore;
+
+		beat.text = "BEAT " + LocalValues.beatNum;
 
 	}
 	
