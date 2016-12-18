@@ -44,6 +44,8 @@ public class AimInputManager : MonoBehaviour {
 
 	void Update () {
 
+		if(LocalValues.gameFlg) {
+
 		inputX = Input.GetAxis("Horizontal");
 		inputY = Input.GetAxis("Vertical");
 
@@ -57,61 +59,64 @@ public class AimInputManager : MonoBehaviour {
 
 		shotImage[shotLeft].GetComponent<Image>().enabled = true;
 
-		if (!gc.isPause) {
-		//移動処理	
-		//aimオブジェクトが画面内なら,現在地を記憶して移動,更に移動直後に画面外に出たら,同フレーム内で記憶していた場所に戻る
-		if (ViewPointCheck()) {
+			if (!gc.isPause) {
+				//移動処理	
+				//aimオブジェクトが画面内なら,現在地を記憶して移動,更に移動直後に画面外に出たら,同フレーム内で記憶していた場所に戻る
+				if (ViewPointCheck()) {
 
-				currentPos = aim.position;
-				MoveTarget();
+					currentPos = aim.position;
+					MoveTarget();
 
-				if (!ViewPointCheck()) {
+					if (!ViewPointCheck()) {
+						aim.position = currentPos;
+
+					}
+					//aimオブジェクトが画面外に出たら,前フレームで記憶していた場所に戻る
+				} else {
 					aim.position = currentPos;
-
 				}
-				//aimオブジェクトが画面外に出たら,前フレームで記憶していた場所に戻る
-			} else {
-				aim.position = currentPos;
-			}
 
 
-			//発射！
-			if (shotLeft > 0 && canShot) {
-				if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space)) {
-					Instantiate(shot, mazzle.transform.position, transform.rotation);
-					sounds[0].PlayOneShot(sounds[0].clip);
-					shotLeft--;
+				//発射！
+				if (shotLeft > 0 && canShot) {
+					if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space)) {
+						Instantiate(shot, mazzle.transform.position, transform.rotation);
+						sounds[0].PlayOneShot(sounds[0].clip);
+						shotLeft--;
+					}
 				}
-			}
 
-			if (shotLeft < 0) {
-				//空振り音
-				//sounds[2].PlayOneShot(sounds[2].clip);
-			}
-
-			//リロード
-			if (Input.GetKeyDown(KeyCode.JoystickButton4) || Input.GetKeyDown(KeyCode.Return)) {
-				if (shotLeft < 5) {
-					sounds[2].PlayOneShot(sounds[2].clip);
-					StartCoroutine("Reload");
+				if (shotLeft < 0) {
+					//空振り音
+					//sounds[2].PlayOneShot(sounds[2].clip);
 				}
-			}
 
-			//照準のリセット
-			if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.LeftShift)) {
-
-				moveSpeed = 0.05f;
-
-				if (inputX == 0 && inputY == 0) {
-					transform.localPosition = startPos;
+				//リロード
+				if (Input.GetKeyDown(KeyCode.JoystickButton4) || Input.GetKeyDown(KeyCode.Return)) {
+					if (shotLeft < 5) {
+						sounds[2].PlayOneShot(sounds[2].clip);
+						StartCoroutine("Reload");
+					}
 				}
-			}
 
-			if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.LeftShift)) {
-				moveSpeed = 0.18f;
+				//照準のリセット
+				if (Input.GetKey(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.LeftShift)) {
+
+					moveSpeed = 0.05f;
+
+					if (inputX == 0 && inputY == 0) {
+						transform.localPosition = startPos;
+					}
+				}
+
+				if (Input.GetKeyUp(KeyCode.JoystickButton5) || Input.GetKey(KeyCode.LeftShift)) {
+					moveSpeed = 0.18f;
+				}
 			}
 		}
 	}
+
+
 
 
 	//aimオブジェクトが画面内にいたらTrueが返る

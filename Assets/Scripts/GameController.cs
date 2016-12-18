@@ -16,53 +16,62 @@ public class GameController : MonoBehaviour {
 	public GameObject playCanvas;
 	public GameObject resultCanvas;
 
-	void Start () {
+	public Text centerText;
+	public Text title;
+	public Text totalScore;
+	
 
-		LocalValues.gameFlg = true;
 
-		playCanvas.SetActive(true);
-		resultCanvas.SetActive(false);
+	void Start() {
+		playCanvas.SetActive(false);
+		resultCanvas.SetActive(true);
 
 		player = GameObject.Find("Player");
 		pc = player.GetComponent<PlayerController>();
+		player.GetComponent<NavMeshAgent>().Stop();
+		//centerText = resultCanvas.transform.FindChild("StartText").GetComponent<Text>();
+		//title = resultCanvas.transform.FindChild("Title").GetComponent<Text>();
+		centerText.text = "START";
 
+		Invoke("GameStart", 2.0f);
 	}
 	
 
 	void Update () {
 
-		//ポーズ
-		if (!isPause) {
-			if ((Input.GetKeyDown(KeyCode.P)) || Input.GetKeyDown(KeyCode.JoystickButton7)) {
-				pauseText.text = "PAUSE";
-				Time.timeScale = 0;
-				isPause = true;
-				Debug.Log ("B"+LocalValues.beatNum +" S"+LocalValues.shotNum);
+		if (LocalValues.gameFlg) {
+
+			//ポーズ
+			if (!isPause) {
+				if ((Input.GetKeyDown(KeyCode.P)) || Input.GetKeyDown(KeyCode.JoystickButton7)) {
+					pauseText.text = "PAUSE";
+					Time.timeScale = 0;
+					isPause = true;
+					Debug.Log("B" + LocalValues.beatNum + " S" + LocalValues.shotNum);
+				}
+			} else {
+				if ((Input.GetKeyDown(KeyCode.P)) || Input.GetKeyDown(KeyCode.JoystickButton7)) {
+					pauseText.text = "";
+					Time.timeScale = 1;
+					isPause = false;
+				}
 			}
-		} else {
-			if ((Input.GetKeyDown(KeyCode.P)) || Input.GetKeyDown(KeyCode.JoystickButton7)) {
-				pauseText.text = "";
-				Time.timeScale = 1;
-				isPause = false;
+
+
+
+			if (pc.hp <= 0) {
+				//GameOver演出、リザルト
+				title.text = "FAILURE...";
+				Finish();
 			}
+
+			if (clear) {
+				//GameClear表示とリザルト
+				title.text = "CLEAR";
+				Finish();
+			}
+
 		}
-
-
-
-		if (pc.hp <= 0) {
-			//GameOver表示とリザルト
-			pc.GetComponent<NavMeshAgent>().Stop();
-			playCanvas.SetActive(false);
-			resultCanvas.SetActive(true);
-	}
-		if (clear) {
-			//GameClear表示とリザルト
-			pc.GetComponent<NavMeshAgent>().Stop();
-			playCanvas.SetActive(false);
-			resultCanvas.SetActive(true);
-		}
-		
-
 
 	}
 
@@ -74,10 +83,33 @@ public class GameController : MonoBehaviour {
 	
 	}
 
-	//リザルト処理
-	void Result() {
+	void GameStart() {
+		
+		LocalValues.gameFlg = true;
+		centerText.text = "";
+		resultCanvas.SetActive(false);
+		playCanvas.SetActive(true);
+		player.GetComponent<NavMeshAgent>().Resume();
 
-		//UIなどを出す
 	}
 
+	//ゲーム終了
+	void Finish() {
+
+		LocalValues.gameFlg = false;
+		pc.GetComponent<NavMeshAgent>().Stop();
+		playCanvas.SetActive(false);
+		resultCanvas.SetActive(true);
+
+		StartCoroutine("Result");
+	}
+	
+	IEnumerator Result() {
+
+		yield return new WaitForSeconds(0.5f);
+		
+		totalScore.text = "SCORE  " + LocalValues.totalScore;
+
+	}
+	
 }

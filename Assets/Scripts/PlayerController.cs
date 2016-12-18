@@ -17,9 +17,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 
 		cameraPos = Camera.main.transform.localPosition;
-			
-		//--------------ゲームフラグを確認してから移動スタートさせる
-
+		
 		slider.GetComponent<Slider>();
 		hp = 3;
 	
@@ -38,7 +36,7 @@ public class PlayerController : MonoBehaviour {
 			hpText.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
 		}
 
-
+/*
 		if (Input.GetKeyDown(KeyCode.Q)) {
 			GetComponent<NavMeshAgent>().Stop();
 		}
@@ -47,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 			GetComponent<NavMeshAgent>().Resume();
 		}
 
-
+*/
 
 		//ステージ作成時のテスト用
 		RotateTest ();
