@@ -2980,6 +2980,7 @@ GameObject:
   - 224: {fileID: 1211644719}
   - 222: {fileID: 1211644721}
   - 114: {fileID: 1211644720}
+  - 95: {fileID: 1211644722}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -3023,15 +3024,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.622}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.709}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 51115ec3a12d43349a8c1766cff2bca6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3044,6 +3045,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211644718}
+--- !u!95 &1211644722
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1211644718}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d300ff513cc003f49977d38ebd6ebc71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1212617492
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,6 +4484,10 @@ Prefab:
       propertyPath: life
       value: 
       objectReference: {fileID: 1390915128}
+    - target: {fileID: 11440302, guid: 3c498902483aafc409b6a1468ed885fa, type: 2}
+      propertyPath: panelAnim
+      value: 
+      objectReference: {fileID: 1211644722}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c498902483aafc409b6a1468ed885fa, type: 2}
   m_IsPrefabParent: 0

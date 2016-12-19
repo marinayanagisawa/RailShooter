@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour {
 	public GameObject playCanvas;
 	public GameObject resultCanvas;
 
+	private Animator panelAnim;
+
 	public Text centerText;
 	public Text title;
 	public Text score;
@@ -27,6 +29,9 @@ public class GameController : MonoBehaviour {
 
 
 	void Start() {
+
+		panelAnim = resultCanvas.transform.FindChild ("Panel").GetComponent<Animator> ();
+
 		playCanvas.SetActive(false);
 		resultCanvas.SetActive(true);
 
@@ -88,7 +93,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void GameStart() {
-		
+
 		LocalValues.gameFlg = true;
 		centerText.text = "";
 		resultCanvas.SetActive(false);
@@ -105,31 +110,32 @@ public class GameController : MonoBehaviour {
 		playCanvas.SetActive(false);
 		resultCanvas.SetActive(true);
 
+		panelAnim.SetTrigger ("mFadeOut");
 		StartCoroutine("Result");
 	}
 	
 	IEnumerator Result() {
 
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(1.0f);
 		score.text = LocalValues.totalScore.ToString();
 
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(1.0f);
 		int l = pc.hp * 1000;
 		life.text =  l.ToString();
 
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(1.0f);
 		beat.text = LocalValues.beatNum.ToString();
 
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(1.0f);
 		Shot.text = LocalValues.shotNum.ToString();
 
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(1.0f);
 		int t = (LocalValues.totalScore + pc.hp * 1000);
 		totalScore.text = t.ToString();
 
-		yield return new WaitForSeconds(0.5f);
-		float h = (float)LocalValues.beatNum / (float)LocalValues.shotNum;
-		h = (int)h * 100;
+		yield return new WaitForSeconds(1.0f);
+		float h = ((float)LocalValues.beatNum / (float)LocalValues.shotNum) * 100;
+		h = (int)h;
 		hitPer.text =  h + "%";
 	
 	
