@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour {
 	public Text totalScore;
 	public Text hitPer;
 
+	public GameObject sc;
+	public  Vector3 uiPos = Vector3.zero;
 
 	void Start() {
 
@@ -118,26 +120,33 @@ public class GameController : MonoBehaviour {
 
 		yield return new WaitForSeconds(1.0f);
 		score.text = LocalValues.totalScore.ToString();
+		panelAnim.SetTrigger ("result");
+		//iTween.MoveTo (sc, iTween.Hash ("position", uiPos, "islocal", true, "time", 0.5f));
 
-		yield return new WaitForSeconds(1.0f);
+		//yield return new WaitForSeconds(1.0f);
 		int l = pc.hp * 1000;
 		life.text =  l.ToString();
 
-		yield return new WaitForSeconds(1.0f);
+		//yield return new WaitForSeconds(1.0f);
 		beat.text = LocalValues.beatNum.ToString();
 
-		yield return new WaitForSeconds(1.0f);
+		//yield return new WaitForSeconds(1.0f);
 		Shot.text = LocalValues.shotNum.ToString();
 
-		yield return new WaitForSeconds(1.0f);
+		//yield return new WaitForSeconds(1.0f);
 		int t = (LocalValues.totalScore + pc.hp * 1000);
 		totalScore.text = t.ToString();
 
-		yield return new WaitForSeconds(1.0f);
-		float h = ((float)LocalValues.beatNum / (float)LocalValues.shotNum) * 100;
-		h = (int)h;
-		hitPer.text =  h + "%";
-	
+		//yield return new WaitForSeconds(1.0f);
+
+		//一度も撃たないと変な数字が代入されるため
+		if (LocalValues.shotNum == 0) {
+			hitPer.text = "0%";
+		} else {
+			float h = ((float)LocalValues.beatNum / (float)LocalValues.shotNum) * 100;
+			h = (int)h;
+			hitPer.text = h + "%";
+		}
 	
 	}
 	
