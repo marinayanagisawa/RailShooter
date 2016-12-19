@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		string layerMask = LayerMask.LayerToName (col.gameObject.layer);
 
-		if ((layerMask == "Enemy")||(layerMask == "EnemyShot")){
-
+		//if ((layerMask == "Enemy")||(layerMask == "EnemyShot")){
+		if (layerMask == "EnemyShot"){
 			//enemyShotとヒットしたときの処理(音,画面揺れ,HP計算)
 			hitSound.PlayOneShot (hitSound.clip);
 			iTween.ShakePosition (cam, iTween.Hash ("x", 0.2f, "y", 0.2f, "time", 0.4f));
