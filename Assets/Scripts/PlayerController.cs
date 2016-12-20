@@ -35,18 +35,7 @@ public class PlayerController : MonoBehaviour {
 			hpFore.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
 			hpText.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
 		}
-
-/*
-		if (Input.GetKeyDown(KeyCode.Q)) {
-			GetComponent<NavMeshAgent>().Stop();
-		}
-
-		if (Input.GetKeyDown(KeyCode.W)) {
-			GetComponent<NavMeshAgent>().Resume();
-		}
-
-*/
-
+			
 		//ステージ作成時のテスト用
 		RotateTest ();
 
@@ -85,15 +74,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 	}
-
-
-
-
-
-
-
-
-
 
 
 	public void CameraTurn(int euler){
