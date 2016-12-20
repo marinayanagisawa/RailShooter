@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour {
 
 			if (pc.hp <= 0) {
 				//GameOver演出、リザルト
+				title.GetComponent<Text>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
 				title.text = "FAILURE...";
 				Finish();
 			}
