@@ -9585,6 +9585,14 @@ Prefab:
       propertyPath: hpText
       value: 
       objectReference: {fileID: 894786950}
+    - target: {fileID: 8292340, guid: b3e8e30fbe3b86e4e91d25313d979341, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 26a898c05940edf46be98af2d130c117, type: 3}
+    - target: {fileID: 8287780, guid: b3e8e30fbe3b86e4e91d25313d979341, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fe5560eade2a314b87b3d44ac42f108, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3e8e30fbe3b86e4e91d25313d979341, type: 2}
   m_IsPrefabParent: 0
