@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject hpFore;
 	public GameObject hpText;
 
+	private GameController gc;
+
 	void Start () {
 
 		cameraPos = Camera.main.transform.localPosition;
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 	
 		hitSound = GetComponent<AudioSource> ();
 
-
+		gc = GameObject.Find ("GameController").GetComponent<GameController> ();
 	}
 	
 	void Update () {
@@ -46,26 +48,27 @@ public class PlayerController : MonoBehaviour {
 		string layerMask = LayerMask.LayerToName (col.gameObject.layer);
 
 		//if ((layerMask == "Enemy")||(layerMask == "EnemyShot")){
-		if (layerMask == "EnemyShot"){
+		if (layerMask == "EnemyShot") {
+			
 			//enemyShotとヒットしたときの処理(音,画面揺れ,HP計算)
 			hitSound.PlayOneShot (hitSound.clip);
 			iTween.ShakePosition (cam, iTween.Hash ("x", 0.2f, "y", 0.2f, "time", 0.4f));
 
+			//カメラ揺れ後の位置を調整
 			Invoke ("CamPosCheck", 0.6f);
-			/*
-		Vector3 afterHitPos = Camera.main.transform.localPosition;
-		if (cameraPos != afterHitPos) {
-			Camera.main.transform.localPosition = cameraPos;
-		}
-*/
+
 			if (hp > 0) {
 				hp--;
 			}
 
+		} else if (layerMask == "GoalArea") {
+
+			//gameFlgはGameControllerのFinish関数内で変更
+			gc.clear = true;
 		}
+
 	}
 		
-
 	void CamPosCheck(){
 		Debug.Log ("カメラ位置修正");
 		Vector3 afterHitPos = Camera.main.transform.localPosition;

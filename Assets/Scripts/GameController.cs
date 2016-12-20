@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
 	public GameObject playCanvas;
 	public GameObject resultCanvas;
 
+	//private GameObject goalArea;
 	private Animator panelAnim;
 
 	public Text centerText;
@@ -37,8 +38,7 @@ public class GameController : MonoBehaviour {
 		player = GameObject.Find("Player");
 		pc = player.GetComponent<PlayerController>();
 		player.GetComponent<NavMeshAgent>().Stop();
-		//centerText = resultCanvas.transform.FindChild("StartText").GetComponent<Text>();
-		//title = resultCanvas.transform.FindChild("Title").GetComponent<Text>();
+
 		centerText.text = "START";
 
 		Invoke("GameStart", 2.0f);
