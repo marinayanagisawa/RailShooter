@@ -1229,6 +1229,7 @@ MonoBehaviour:
   enemyShot: {fileID: 108246, guid: 76e44a669a6f19d44aa42ad65eba7798, type: 2}
   aleadyShot: 1
   walk: 1
+  enemyScore: 300
 --- !u!137 &13741268
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
