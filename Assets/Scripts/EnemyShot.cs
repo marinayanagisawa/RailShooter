@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyShot : MonoBehaviour {
 
-	private float shotSpeed = 4.0f;
+	public float shotSpeed = 4.0f;
 	private float lifeTime = 8.0f;
 	private int score = 1000;
 	private GameController gc;
