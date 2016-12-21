@@ -49,7 +49,8 @@ public class GunDirection : MonoBehaviour {
 			disText.text = "";
 		}
 
+		Debug.DrawRay(ray.origin, ray.direction*10, Color.red, 0.0f);
+
 	}
-		
-	
+
 }
