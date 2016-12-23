@@ -5682,6 +5682,7 @@ GameObject:
   - 223: {fileID: 1386219199}
   - 114: {fileID: 1386219198}
   - 114: {fileID: 1386219197}
+  - 95: {fileID: 1386219200}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5777,6 +5778,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!95 &1386219200
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386219195}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f403f4a8e6a6d89498343f2f0b02f8bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1388993190
 GameObject:
   m_ObjectHideFlags: 0
@@ -11090,6 +11108,7 @@ GameObject:
   - 223: {fileID: 1954589759}
   - 114: {fileID: 1954589758}
   - 114: {fileID: 1954589757}
+  - 95: {fileID: 1954589761}
   m_Layer: 5
   m_Name: ResultCanvas
   m_TagString: Untagged
@@ -11172,6 +11191,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1954589761
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1954589756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e94c68380e9436a408d6fb0d16d69969, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1956007183
 Prefab:
   m_ObjectHideFlags: 0
