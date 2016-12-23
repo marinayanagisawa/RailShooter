@@ -2,21 +2,10 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+
 public class TitleManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-		
-
-
-	}
-
+	public Animator anim;
 
 	public void NormalCheck() {
 		LocalValues.reversal = false;
@@ -27,6 +16,14 @@ public class TitleManager : MonoBehaviour {
 	}
 
 	public void GameStart() {
+
+		anim.SetTrigger ("MenuOut");
+		Invoke("MoveScene",1.5f);
+	}
+
+
+	public void MoveScene(){
 		SceneManager.LoadScene("Stage1");
+
 	}
 }
