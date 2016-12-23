@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour {
 
 			if (clear) {
 				//GameClear表示とリザルト
-				title.text = "CLEAR";
+				title.text = "COMPLETE";
 				Finish();
 			}
 
