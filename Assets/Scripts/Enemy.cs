@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour {
 
 	public bool aleadyShot = false;
 	public bool walk = false;
+	public bool fly = false;
 	private Animator moveAnim;
 
 	private bool enemyDead = false;
@@ -50,6 +51,11 @@ public class Enemy : MonoBehaviour {
 			}
 		}
 
+		if (fly) {
+			if (dis < moveStartDis) {
+				moveAnim.SetTrigger ("Fly");
+			}
+		}
 
 		if (dis < shotDis) {
 			//Debug.Log (gameObject.name + "との距離" + dis);
