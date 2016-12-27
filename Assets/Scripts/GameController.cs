@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -86,8 +87,8 @@ public class GameController : MonoBehaviour {
 
 	public void addScore(int score) {
 
-		LocalValues.totalScore += score;
-		scoreText.text = LocalValues.totalScore.ToString();
+		LocalValues.Score += score;
+		scoreText.text = LocalValues.Score.ToString();
 		LocalValues.beatNum++;
 	
 	}
@@ -116,14 +117,15 @@ public class GameController : MonoBehaviour {
 	
 	IEnumerator Result() {
 
-		score.text = LocalValues.totalScore.ToString();
+		score.text = LocalValues.Score.ToString();
 		int l = pc.hp * 1000;
 		life.text =  l.ToString();
 		beat.text = LocalValues.beatNum.ToString();
 		Shot.text = LocalValues.shotNum.ToString();
 
-		int t = (LocalValues.totalScore + pc.hp * 1000);
+		int t = (LocalValues.Score + pc.hp * 1000);
 		totalScore.text = t.ToString();
+		LocalValues.totalScore = t;
 
 		//一度も撃たないと変な数字が代入されるため
 		if (LocalValues.shotNum == 0) {
@@ -137,6 +139,9 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds(1.0f);
 		panelAnim.SetTrigger ("result");
 
+		yield return new WaitForSeconds (10.0f);
+		//シーン移動
+		SceneManager.LoadScene("ScoreRanking");
 	}
 
 
