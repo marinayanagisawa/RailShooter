@@ -11,6 +11,7 @@ public class Score : MonoBehaviour {
 	private string[] scoreKey = new string[5];
 
 	public Text[] rank = new Text[5];
+	public Text lastScore;
 
 	void Start () {
 
@@ -48,13 +49,14 @@ public class Score : MonoBehaviour {
 			Debug.Log ("key番号" + i +";" +rankingScore [i]);
 		}
 			
-		//rankingScoreの上位5件までをUI表示する
+		//rankingScoreの上位5件までと,今回のスコアをUI表示する
 		rank[0].text = "1st   " + rankingScore[0];
 		rank[1].text = "2nd   " + rankingScore[1];
 		rank[2].text = "3rd   " + rankingScore[2];
 		rank[3].text = "4th   " + rankingScore[3];
 		rank[4].text = "5th   " + rankingScore[4];
 
+		lastScore.text = "Your Score  " + LocalValues.totalScore; 
 
 		//配列の中身をplayerPrefsに保存する
 		for (int i = 0; i < 5; i++) {
