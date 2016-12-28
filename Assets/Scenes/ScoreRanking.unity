@@ -145,8 +145,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 51115ec3a12d43349a8c1766cff2bca6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -243,7 +243,7 @@ GameObject:
   - 222: {fileID: 497874977}
   - 114: {fileID: 497874976}
   m_Layer: 5
-  m_Name: LastScore
+  m_Name: CurrentScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -988,4 +988,4 @@ MonoBehaviour:
   - {fileID: 1895507769}
   - {fileID: 1195900161}
   - {fileID: 409462072}
-  lastScore: {fileID: 497874976}
+  currentScore: {fileID: 497874976}

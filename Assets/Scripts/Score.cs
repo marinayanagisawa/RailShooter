@@ -6,12 +6,14 @@ public class Score : MonoBehaviour {
 
 	//ここに取り出したスコアを入れる(最後の１つは今回のスコア用に確保)
 	private int[] rankingScore = new int[6];
+	private int[] lastRankingScore = new int[5];
 
 	//playerPrefsのためのキーの文字列
 	private string[] scoreKey = new string[5];
 
+	//Canvasから紐づけ
 	public Text[] rank = new Text[5];
-	public Text lastScore;
+	public Text currentScore;
 
 	void Start () {
 
@@ -25,6 +27,11 @@ public class Score : MonoBehaviour {
 		for (int i = 0; i < 5; i++) {
 			rankingScore [i] = PlayerPrefs.GetInt (scoreKey[i],0);
 			Debug.Log (rankingScore[i]);
+		}
+
+		//前回保存されたランキングを取っておく
+		for (int i = 0; i < 5; i++) {
+			lastRankingScore[i] = rankingScore[i];
 		}
 
 		//今回のスコアを配列の最後に追加
@@ -44,11 +51,33 @@ public class Score : MonoBehaviour {
 			}
 
 		}
-			
+
+		//前回と今回のランキングを比較
+		int rankNum = 0;
+		bool changeRank = false;
+		for (int i = 0; i < 5; i++) {
+			//順位の変更を見つけたらrankNumに順位を入れて,以降は無視
+			if (!changeRank) {
+				if (rankingScore [i] != lastRankingScore [i]) {
+					rankNum = i;
+					Debug.Log ((rankNum+1) + "位にランクイン！");
+					changeRank = true;
+				}
+			}
+		}
+
+		/*
+		//確認用
 		for (int i = 0; i < 6; i++) {
 			Debug.Log ("key番号" + i +";" +rankingScore [i]);
 		}
-			
+		*/
+
+		//ランキング順位に変更があったら文字色を変える
+		if (changeRank) {
+			rank [rankNum].GetComponent<Text> ().color = Color.red;
+		}
+
 		//rankingScoreの上位5件までと,今回のスコアをUI表示する
 		rank[0].text = "1st   " + rankingScore[0];
 		rank[1].text = "2nd   " + rankingScore[1];
@@ -56,7 +85,7 @@ public class Score : MonoBehaviour {
 		rank[3].text = "4th   " + rankingScore[3];
 		rank[4].text = "5th   " + rankingScore[4];
 
-		lastScore.text = "Your Score  " + LocalValues.totalScore; 
+		currentScore.text = "Your Score  " + LocalValues.totalScore; 
 
 		//配列の中身をplayerPrefsに保存する
 		for (int i = 0; i < 5; i++) {
