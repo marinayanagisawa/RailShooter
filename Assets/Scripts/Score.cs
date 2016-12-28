@@ -28,7 +28,7 @@ public class Score : MonoBehaviour {
 		}
 
 		//今回のスコアを配列の最後に追加
-		rankingScore [5] = LocalValues.Score;
+		rankingScore [5] = LocalValues.totalScore;
 
 
 		//rankingScore内を降順でソート

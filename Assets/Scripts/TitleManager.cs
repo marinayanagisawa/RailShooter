@@ -26,4 +26,15 @@ public class TitleManager : MonoBehaviour {
 		SceneManager.LoadScene("Stage1");
 
 	}
+
+	#if UNITY_EDITOR
+	//Debug用ボタン
+	void OnGUI(){
+		if (GUI.Button(new Rect(0,0,100,50),"Reset")){
+			//保存データを初期化
+			PlayerPrefs.DeleteAll();
+			Debug.Log ("HighScore Reset!");
+		}
+	}
+	#endif
 }

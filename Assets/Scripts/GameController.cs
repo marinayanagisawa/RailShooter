@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour {
 	public Text beat;
 	public Text Shot;
 	public Text totalScore;
-	public Text hitPer;
+	public Text hitRate;
 
 	void Start() {
 
@@ -127,13 +127,16 @@ public class GameController : MonoBehaviour {
 		totalScore.text = t.ToString();
 		LocalValues.totalScore = t;
 
-		//一度も撃たないと変な数字が代入されるため
+
+		//一度も撃たない時は0%
 		if (LocalValues.shotNum == 0) {
-			hitPer.text = "0%";
+			hitRate.text = "0%";
+			LocalValues.hitRate = 0;
 		} else {
 			float h = ((float)LocalValues.beatNum / (float)LocalValues.shotNum) * 100;
-			h = (int)h;
-			hitPer.text = h + "%";
+			int hRate = (int)h;
+			hitRate.text = hRate + " %";
+			LocalValues.hitRate = hRate;
 		}
 	
 		yield return new WaitForSeconds(1.0f);
