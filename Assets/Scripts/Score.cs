@@ -85,7 +85,12 @@ public class Score : MonoBehaviour {
 		rank[3].text = "4th   " + rankingScore[3];
 		rank[4].text = "5th   " + rankingScore[4];
 
-		currentScore.text = "Your Score  " + LocalValues.totalScore; 
+		if (rankNum == 0 && changeRank) {
+			currentScore.GetComponent<Text> ().color = Color.red;
+			currentScore.text = "You Got HighScore!!  " + LocalValues.totalScore; 
+		} else {
+			currentScore.text = "Your Score  " + LocalValues.totalScore; 
+		}
 
 		//配列の中身をplayerPrefsに保存する
 		for (int i = 0; i < 5; i++) {
