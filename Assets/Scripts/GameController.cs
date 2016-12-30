@@ -29,7 +29,16 @@ public class GameController : MonoBehaviour {
 	public Text totalScore;
 	public Text hitRate;
 
+	private int rankNum;
+
+	//ランク表示用の画像
+	private Sprite[] rankImages = new Sprite[6];
+	//ランク表示のUI(resultCanvas内)を紐づけ
+	public Image rankIcon;
+
 	void Start() {
+		//ランク表示に使うイメージを取得
+		rankImages = Resources.LoadAll<Sprite> ("Image/");
 
 		panelAnim = resultCanvas.transform.FindChild ("Panel").GetComponent<Animator> ();
 
@@ -38,8 +47,9 @@ public class GameController : MonoBehaviour {
 
 		player = GameObject.Find("Player");
 		pc = player.GetComponent<PlayerController>();
-		player.GetComponent<NavMeshAgent>().Stop();
 
+		//スタート表示の間はNavMeshを止めておく
+		player.GetComponent<NavMeshAgent>().Stop();
 		centerText.text = "START";
 
 		Invoke("GameStart", 2.0f);
@@ -127,7 +137,6 @@ public class GameController : MonoBehaviour {
 		totalScore.text = t.ToString();
 		LocalValues.totalScore = t;
 
-
 		//一度も撃たない時は0%
 		if (LocalValues.shotNum == 0) {
 			hitRate.text = "0%";
@@ -139,6 +148,10 @@ public class GameController : MonoBehaviour {
 			LocalValues.hitRate = hRate;
 		}
 	
+		//腕前ランクを判断して表示
+		RankCheck ();
+		rankIcon.sprite = rankImages[rankNum];
+
 		yield return new WaitForSeconds(1.0f);
 		panelAnim.SetTrigger ("result");
 
@@ -147,5 +160,24 @@ public class GameController : MonoBehaviour {
 		SceneManager.LoadScene("ScoreRanking");
 	}
 
+
+	//腕前チェック（条件は暫定, ステージが完成してから調整）
+	void RankCheck(){
+		if (LocalValues.totalScore < 3500) {
+			rankNum = 3;  //D
+		} else if (LocalValues.totalScore > 3600 && LocalValues.totalScore < 4900) {
+			rankNum = 2;  //C
+		} else if (LocalValues.totalScore > 5000 && LocalValues.totalScore < 7900) {
+			rankNum = 1;  //B
+		} else if (LocalValues.totalScore > 8000) {
+			rankNum = 0;  //A
+		} else if (LocalValues.totalScore > 8000 && LocalValues.hitRate > 80) {
+			rankNum = 5;  //S
+		} 
+
+		if (pc.hp <= 0) {
+			rankNum = 4;  //E
+		}
+	}
 
 }
