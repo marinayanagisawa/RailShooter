@@ -17,7 +17,6 @@ public class GameController : MonoBehaviour {
 	public GameObject playCanvas;
 	public GameObject resultCanvas;
 
-	//private GameObject goalArea;
 	private Animator panelAnim;
 
 	public Text centerText;
@@ -155,7 +154,7 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds(1.0f);
 		panelAnim.SetTrigger ("result");
 
-		yield return new WaitForSeconds (10.0f);
+		yield return new WaitForSeconds (13.0f);
 		//シーン移動
 		SceneManager.LoadScene("ScoreRanking");
 	}

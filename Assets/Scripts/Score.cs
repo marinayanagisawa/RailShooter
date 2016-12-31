@@ -20,7 +20,6 @@ public class Score : MonoBehaviour {
 		//キーのための文字列を作成
 		for (int i = 0; i < 5; i++) {
 			scoreKey [i] = "score" + i;
-			Debug.Log (scoreKey[i]);
 		}
 
 		//PlayerPrefsの中身を配列に取り出す. 入っていなければ０が返る
@@ -53,14 +52,14 @@ public class Score : MonoBehaviour {
 		}
 
 		//前回と今回のランキングを比較
-		int rankNum = 0;
+		int rankingNum = 0;
 		bool changeRank = false;
 		for (int i = 0; i < 5; i++) {
-			//順位の変更を見つけたらrankNumに順位を入れて,以降は無視
+			//順位の変更を見つけたらrankingNumに順位を入れる
 			if (!changeRank) {
 				if (rankingScore [i] != lastRankingScore [i]) {
-					rankNum = i;
-					Debug.Log ((rankNum+1) + "位にランクイン！");
+					rankingNum = i;
+					Debug.Log ((rankingNum+1) + "位にランクイン！");
 					changeRank = true;
 				}
 			}
@@ -75,7 +74,7 @@ public class Score : MonoBehaviour {
 
 		//ランキング順位に変更があったら文字色を変える
 		if (changeRank) {
-			rank [rankNum].GetComponent<Text> ().color = Color.red;
+			rank [rankingNum].GetComponent<Text> ().color = Color.red;
 		}
 
 		//rankingScoreの上位5件までと,今回のスコアをUI表示する
@@ -85,7 +84,7 @@ public class Score : MonoBehaviour {
 		rank[3].text = "4th   " + rankingScore[3];
 		rank[4].text = "5th   " + rankingScore[4];
 
-		if (rankNum == 0 && changeRank) {
+		if (rankingNum == 0 && changeRank) {
 			currentScore.GetComponent<Text> ().color = Color.red;
 			currentScore.text = "You Got HighScore!!  " + LocalValues.totalScore; 
 		} else {
