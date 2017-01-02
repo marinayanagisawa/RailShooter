@@ -85,6 +85,10 @@ public class PlayerController : MonoBehaviour {
 		iTween.RotateTo (cam, iTween.Hash ("y", euler, "time", 3.0f));
 	}
 
+	public void CameraTurnX(int euler){
+		iTween.RotateTo (cam, iTween.Hash ("x", euler, "time", 2.5f));
+	}
+
 	//検証用の方向指示（テスト専用）
 	#if UNITY_EDITOR
 

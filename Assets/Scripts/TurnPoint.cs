@@ -5,8 +5,10 @@ public class TurnPoint : MonoBehaviour {
 
 	private PlayerController pc;
 
+	public bool axisY = true;
 	//回転したい角度をインスペクターから入力
 	public int euler;
+
 
 	void Start () {
 		pc = GameObject.Find ("Player").GetComponent<PlayerController> ();
@@ -16,7 +18,11 @@ public class TurnPoint : MonoBehaviour {
 		string layerMask = LayerMask.LayerToName (col.gameObject.layer);
 
 		if (layerMask == "Player") {
-			pc.CameraTurn (euler);
+			if (axisY) {
+				pc.CameraTurn (euler);
+			} else {
+				pc.CameraTurnX (euler);
+			}
 		}
 	}
 }
