@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour {
 
@@ -95,6 +96,13 @@ public class Score : MonoBehaviour {
 		for (int i = 0; i < 5; i++) {
 			PlayerPrefs.SetInt(scoreKey[i], rankingScore[i] );
 			PlayerPrefs.Save ();
+		}
+	}
+
+
+	void Update(){
+		if (Input.GetButtonDown ("Fire1")) {
+			SceneManager.LoadScene ("StartScene");
 		}
 	}
 
