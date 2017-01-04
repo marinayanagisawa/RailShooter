@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 		}
 			
 		//ステージ作成時のテスト用
-		RotateTest ();
+		//RotateTest ();
 
 	}
 
