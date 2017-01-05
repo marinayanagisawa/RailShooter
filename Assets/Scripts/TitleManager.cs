@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
+//using UnityEngine.EventSystems;
 
 public class TitleManager : MonoBehaviour {
 
 	public Animator anim;
 	public AudioSource audio;
 
+	//public EventSystem ev;
+
 	void Update(){
+
 
 		if (Input.GetAxis ("Horizontal") != 0  || Input.GetAxis ("Vertical") != 0) {
 			audio.PlayOneShot (audio.clip);
