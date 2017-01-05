@@ -5,6 +5,7 @@ public class TurnPoint : MonoBehaviour {
 
 	private PlayerController pc;
 
+	//左右に回転したいときはチェック
 	public bool axisY = true;
 	//回転したい角度をインスペクターから入力
 	public int euler;

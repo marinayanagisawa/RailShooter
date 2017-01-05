@@ -85,6 +85,7 @@ public class Score : MonoBehaviour {
 		rank[3].text = "4th   " + rankingScore[3];
 		rank[4].text = "5th   " + rankingScore[4];
 
+		//1位だったら赤字で表示
 		if (rankingNum == 0 && changeRank) {
 			currentScore.GetComponent<Text> ().color = Color.red;
 			currentScore.text = "You Got HighScore!!  " + LocalValues.totalScore; 

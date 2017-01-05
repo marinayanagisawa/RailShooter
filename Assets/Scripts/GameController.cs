@@ -164,16 +164,19 @@ public class GameController : MonoBehaviour {
 	void RankCheck(){
 		if (LocalValues.totalScore < 3500) {
 			rankNum = 3;  //D
-		} else if (LocalValues.totalScore > 3600 && LocalValues.totalScore < 4900) {
+		}
+		if (LocalValues.totalScore > 3600 && LocalValues.totalScore < 4900) {
 			rankNum = 2;  //C
-		} else if (LocalValues.totalScore > 5000 && LocalValues.totalScore < 7900) {
+		}
+		if (LocalValues.totalScore > 5000 && LocalValues.totalScore < 7900) {
 			rankNum = 1;  //B
-		} else if (LocalValues.totalScore > 8000) {
+		}
+		if (LocalValues.totalScore > 8000) {
 			rankNum = 0;  //A
-		} else if (LocalValues.totalScore > 8000 && LocalValues.hitRate > 80) {
+		}
+		if (LocalValues.totalScore > 8000 && LocalValues.hitRate > 80) {
 			rankNum = 5;  //S
 		} 
-
 		if (pc.hp <= 0) {
 			rankNum = 4;  //E
 		}
