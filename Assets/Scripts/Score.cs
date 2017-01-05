@@ -101,7 +101,7 @@ public class Score : MonoBehaviour {
 
 
 	void Update(){
-		if (Input.GetButtonDown ("Fire1")) {
+		if (Input.GetKeyDown(KeyCode.Space)) {
 			SceneManager.LoadScene ("StartScene");
 		}
 	}

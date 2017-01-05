@@ -39,8 +39,9 @@ public class PlayerController : MonoBehaviour {
 		}
 			
 		//ステージ作成時のテスト用
-		//RotateTest ();
-
+		#if UNITY_EDITOR
+		RotateTest ();
+		#endif
 	}
 
 
@@ -90,8 +91,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	//検証用の方向指示（テスト専用）
-	#if UNITY_EDITOR
-
 	void RotateTest(){
 		if (Input.GetKeyDown (KeyCode.Keypad8)) {
 			CameraTurn (0);
@@ -107,5 +106,4 @@ public class PlayerController : MonoBehaviour {
 		}
 
 	}
-	#endif
 }
