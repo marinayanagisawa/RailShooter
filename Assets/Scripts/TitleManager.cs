@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 public class TitleManager : MonoBehaviour {
 
 	public Animator anim;
+	public AudioSource audio;
+
+	void Update(){
+
+		if (Input.GetAxis ("Horizontal") != 0  || Input.GetAxis ("Vertical") != 0) {
+			audio.PlayOneShot (audio.clip);
+
+		}
+	}
 
 	public void NormalCheck() {
 		LocalValues.reversal = false;
