@@ -5,7 +5,11 @@ public class Door : MonoBehaviour {
 	public Animator anim;
 
 	void OnTriggerEnter(Collider col){
-		Debug.Log ("DoorOpen!");
-		anim.SetTrigger ("DoorOpen");
+		string layerMask = LayerMask.LayerToName (col.gameObject.layer);
+
+		if (layerMask == "Player") {
+			Debug.Log ("DoorOpen!");
+			anim.SetTrigger ("DoorOpen");
+		}
 	}
 }
