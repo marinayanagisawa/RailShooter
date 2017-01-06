@@ -58,8 +58,7 @@ public class Enemy : MonoBehaviour {
 		}
 
 		if (dis < shotDis) {
-			//Debug.Log (gameObject.name + "との距離" + dis);
-
+	
 			//射程に入ったら,1回撃つ
 			if (!enemyDead) {
 				if (!aleadyShot) {
