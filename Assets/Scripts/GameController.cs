@@ -162,19 +162,19 @@ public class GameController : MonoBehaviour {
 
 	//腕前チェック（条件は暫定, ステージが完成してから調整）
 	void RankCheck(){
-		if (LocalValues.totalScore < 5000) {
+		if (LocalValues.totalScore <= 8000) {
 			rankNum = 3;  //D
 		}
-		if (LocalValues.totalScore > 5100 && LocalValues.totalScore < 6900) {
+		if (LocalValues.totalScore > 8000 && LocalValues.totalScore < 13000) {
 			rankNum = 2;  //C
 		}
-		if (LocalValues.totalScore > 7000 && LocalValues.totalScore < 9900) {
+		if (LocalValues.totalScore > 13000 && LocalValues.totalScore < 17000) {
 			rankNum = 1;  //B
 		}
-		if (LocalValues.totalScore > 10000) {
+		if (LocalValues.totalScore >= 17000) {
 			rankNum = 0;  //A
 		}
-		if (LocalValues.totalScore > 12000 && LocalValues.hitRate > 80) {
+		if (LocalValues.totalScore >= 20000 && LocalValues.hitRate > 79) {
 			rankNum = 5;  //S
 		} 
 		if (pc.hp <= 0) {
