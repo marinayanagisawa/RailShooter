@@ -10,6 +10,7 @@ public class LocalValues : MonoBehaviour {
 	public static int beatNum = 0;
 	public static int shotNum = 0;
 	public static int hitRate = 0;
+	public static int rankNum = 0;
 
 	public static bool reversal = true;
 }

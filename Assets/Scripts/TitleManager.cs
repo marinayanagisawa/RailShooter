@@ -1,22 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-//using UnityEngine.EventSystems;
+using UnityEngine.EventSystems;
 
 public class TitleManager : MonoBehaviour {
 
 	public Animator anim;
-	public AudioSource audio;
+	public AudioSource sound;
 
-	//public EventSystem ev;
+	
+	private GameObject forcusObj;
+
+	void Start() {
+		//ハイライトされているUIを取得
+		forcusObj = EventSystem.current.firstSelectedGameObject;
+	}
 
 	void Update(){
 
-
-		if (Input.GetAxis ("Horizontal") != 0  || Input.GetAxis ("Vertical") != 0) {
-			audio.PlayOneShot (audio.clip);
-
+		//比較する
+		if (forcusObj != EventSystem.current.currentSelectedGameObject) {
+			sound.PlayOneShot(sound.clip);
 		}
+
+		//lastSelectedObjに代入
+		forcusObj = EventSystem.current.currentSelectedGameObject;
+
 	}
 
 	public void NormalCheck() {

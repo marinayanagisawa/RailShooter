@@ -180,6 +180,8 @@ public class GameController : MonoBehaviour {
 		if (pc.hp <= 0) {
 			rankNum = 4;  //E
 		}
+
+		LocalValues.rankNum = rankNum;
 	}
 
 }
