@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 public class Score : MonoBehaviour {
 
 	//ここに取り出したスコアを入れる(最後の１つは今回のスコア用に確保)
-	private int[] rankingScore = new int[6];
+	//private int[] rankingScore = new int[6];
+
 	private int[] lastRankingScore = new int[5];
+	
+	//文字列結合して入れる配列
+	private string[] ranking = new string[6];
 
 	//playerPrefsのためのキーの文字列
 	private string[] scoreKey = new string[5];
@@ -22,31 +26,48 @@ public class Score : MonoBehaviour {
 		for (int i = 0; i < 5; i++) {
 			scoreKey [i] = "score" + i;
 		}
-
+		/*
 		//PlayerPrefsの中身を配列に取り出す. 入っていなければ０が返る
 		for (int i = 0; i < 5; i++) {
 			rankingScore [i] = PlayerPrefs.GetInt (scoreKey[i],0);
 			Debug.Log (rankingScore[i]);
 		}
+*/
+
+        //rankingDataに保存データを取り出し（String）
+		for (int i = 0; i < 5; i++) {
+			ranking[i] = PlayerPrefs.GetString(scoreKey[i],"0,0");
+			Debug.Log(ranking[i]);
+		}
+
+
 
 		//前回保存されたランキングを取っておく
 		for (int i = 0; i < 5; i++) {
-			lastRankingScore[i] = rankingScore[i];
+			//lastRankingScore[i] = rankingScore[i];
+			lastRankingScore[i] = int.Parse(ranking[i].Split(',')[0]);
 		}
 
 		//今回のスコアを配列の最後に追加
-		rankingScore [5] = LocalValues.totalScore;
+		//rankingScore [5] = LocalValues.totalScore;
 
+		//カンマ区切りで今回のスコアと評価を追加
+		ranking[5] = LocalValues.totalScore + "," + LocalValues.rankNum;
+
+		
+		
 
 		//rankingScore内を降順でソート
-		for (int i = 0; i < rankingScore.Length - 1; i++) {
+		for (int i = 0; i < ranking.Length - 1; i++) {
 
-			for(int j = rankingScore.Length-1; j >i; j--){
+			for(int j = ranking.Length-1; j >i; j--){
 
-				if (rankingScore [j] > rankingScore [j - 1]) {
-					int temp = rankingScore [j];
-					rankingScore [j] = rankingScore [j - 1];
-					rankingScore [j - 1] = temp;
+				if (int.Parse(ranking[j].Split(',')[0]) > int.Parse(ranking[j-1].Split(',')[0])) {
+
+					string temp = ranking [j];
+					ranking [j] = ranking [j - 1];
+					ranking [j - 1] = temp;
+
 				}
 			}
 
@@ -58,7 +79,8 @@ public class Score : MonoBehaviour {
 		for (int i = 0; i < 5; i++) {
 			//順位の変更を見つけたらrankingNumに順位を入れる
 			if (!changeRank) {
-				if (rankingScore [i] != lastRankingScore [i]) {
+				//if (rankingScore [i] != lastRankingScore [i]) {
+				if (int.Parse(ranking[i].Split(',')[0]) != lastRankingScore[i]) {
 					rankingNum = i;
 					Debug.Log ((rankingNum+1) + "位にランクイン！");
 					changeRank = true;
@@ -79,11 +101,19 @@ public class Score : MonoBehaviour {
 		}
 
 		//rankingScoreの上位5件までと,今回のスコアをUI表示する
-		rank[0].text = "1st   " + rankingScore[0];
+	/*	rank[0].text = "1st   " + rankingScore[0];
 		rank[1].text = "2nd   " + rankingScore[1];
 		rank[2].text = "3rd   " + rankingScore[2];
 		rank[3].text = "4th   " + rankingScore[3];
 		rank[4].text = "5th   " + rankingScore[4];
+*/
+		rank[0].text = "1st   " + ranking[0];
+		rank[1].text = "2nd   " + ranking[1];
+		rank[2].text = "3rd   " + ranking[2];
+		rank[3].text = "4th   " + ranking[3];
+		rank[4].text = "5th   " + ranking[4];
+
+
 
 		//1位だったら赤字で表示
 		if (rankingNum == 0 && changeRank) {
@@ -95,7 +125,8 @@ public class Score : MonoBehaviour {
 
 		//配列の中身をplayerPrefsに保存する
 		for (int i = 0; i < 5; i++) {
-			PlayerPrefs.SetInt(scoreKey[i], rankingScore[i] );
+			//PlayerPrefs.SetInt(scoreKey[i], rankingScore[i] );
+			PlayerPrefs.SetString(scoreKey[i], ranking[i]);
 			PlayerPrefs.Save ();
 		}
 	}
