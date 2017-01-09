@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour {
 	public Text Shot;
 	public Text totalScore;
 	public Text hitRate;
+	public string rank;
 
 	private int rankNum;
 
@@ -163,25 +164,31 @@ public class GameController : MonoBehaviour {
 	//腕前チェック（条件は暫定, ステージが完成してから調整）
 	void RankCheck(){
 		if (LocalValues.totalScore <= 8000) {
-			rankNum = 3;  //D
+			rankNum = 3;
+			rank = "D";
 		}
 		if (LocalValues.totalScore > 8000 && LocalValues.totalScore < 13000) {
-			rankNum = 2;  //C
+			rankNum = 2;
+			rank = "C";
 		}
 		if (LocalValues.totalScore > 13000 && LocalValues.totalScore < 17000) {
-			rankNum = 1;  //B
+			rankNum = 1;
+			rank = "B";
 		}
 		if (LocalValues.totalScore >= 17000) {
-			rankNum = 0;  //A
+			rankNum = 0;
+			rank = "A";
 		}
 		if (LocalValues.totalScore >= 20000 && LocalValues.hitRate > 79) {
-			rankNum = 5;  //S
+			rankNum = 5;
+			rank = "S";
 		} 
 		if (pc.hp <= 0) {
-			rankNum = 4;  //E
+			rankNum = 4;
+			rank = "E";
 		}
 
-		LocalValues.rankNum = rankNum;
+		LocalValues.rank = rank;
 	}
 
 }

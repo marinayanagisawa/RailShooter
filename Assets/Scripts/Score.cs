@@ -8,10 +8,10 @@ public class Score : MonoBehaviour {
 	//ここに取り出したスコアを入れる(最後の１つは今回のスコア用に確保)
 	//private int[] rankingScore = new int[6];
 
-	private int[] lastRankingScore = new int[5];
 	
-	//文字列結合して入れる配列
+	//文字列結合してランキングデータを入れる(最後の１つは今回のスコア用に確保)
 	private string[] ranking = new string[6];
+	private int[] lastRankingScore = new int[5];
 
 	//playerPrefsのためのキーの文字列
 	private string[] scoreKey = new string[5];
@@ -34,7 +34,7 @@ public class Score : MonoBehaviour {
 		}
 */
 
-        //rankingDataに保存データを取り出し（String）
+        //rankingに保存データを取り出し（String）
 		for (int i = 0; i < 5; i++) {
 			ranking[i] = PlayerPrefs.GetString(scoreKey[i],"0,0");
 			Debug.Log(ranking[i]);
@@ -42,7 +42,7 @@ public class Score : MonoBehaviour {
 
 
 
-		//前回保存されたランキングを取っておく
+		//前回保存されたスコアを,文字列からintに直して取っておく
 		for (int i = 0; i < 5; i++) {
 			//lastRankingScore[i] = rankingScore[i];
 			lastRankingScore[i] = int.Parse(ranking[i].Split(',')[0]);
@@ -51,13 +51,12 @@ public class Score : MonoBehaviour {
 		//今回のスコアを配列の最後に追加
 		//rankingScore [5] = LocalValues.totalScore;
 
-		//カンマ区切りで今回のスコアと評価を追加
+		//カンマ区切りで今回のスコアと評価を配列の最後に追加
 		ranking[5] = LocalValues.totalScore + "," + LocalValues.rankNum;
 
-		
-		
 
-		//rankingScore内を降順でソート
+
+		//ranking内を降順でソート（文字列からintに直しつつ比較,文字列のままソート）
 		for (int i = 0; i < ranking.Length - 1; i++) {
 
 			for(int j = ranking.Length-1; j >i; j--){
@@ -67,10 +66,8 @@ public class Score : MonoBehaviour {
 					string temp = ranking [j];
 					ranking [j] = ranking [j - 1];
 					ranking [j - 1] = temp;
-
 				}
 			}
-
 		}
 
 		//前回と今回のランキングを比較
@@ -107,11 +104,11 @@ public class Score : MonoBehaviour {
 		rank[3].text = "4th   " + rankingScore[3];
 		rank[4].text = "5th   " + rankingScore[4];
 */
-		rank[0].text = "1st   " + ranking[0];
-		rank[1].text = "2nd   " + ranking[1];
-		rank[2].text = "3rd   " + ranking[2];
-		rank[3].text = "4th   " + ranking[3];
-		rank[4].text = "5th   " + ranking[4];
+		rank[0].text = "1st   " + ranking[0].Split(',')[0] + "  " + LocalValues.rank;
+		rank[1].text = "2nd   " + ranking[1].Split(',')[0] + "  " + LocalValues.rank;
+		rank[2].text = "3rd   " + ranking[2].Split(',')[0] + "  " + LocalValues.rank;
+		rank[3].text = "4th   " + ranking[3].Split(',')[0] + "  " + LocalValues.rank;
+		rank[4].text = "5th   " + ranking[4].Split(',')[0] + "  " + LocalValues.rank;
 
 
 

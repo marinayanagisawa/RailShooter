@@ -11,6 +11,7 @@ public class LocalValues : MonoBehaviour {
 	public static int shotNum = 0;
 	public static int hitRate = 0;
 	public static int rankNum = 0;
+	public static string rank = "E";
 
 	public static bool reversal = true;
 }
