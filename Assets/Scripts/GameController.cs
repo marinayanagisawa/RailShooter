@@ -37,6 +37,8 @@ public class GameController : MonoBehaviour {
 	public Image rankIcon;
 
 	void Start() {
+		LocalValues.Init ();
+
 		//ランク表示に使うイメージを取得
 		rankImages = Resources.LoadAll<Sprite> ("Image/");
 
@@ -97,8 +99,8 @@ public class GameController : MonoBehaviour {
 
 	public void addScore(int score) {
 
-		LocalValues.Score += score;
-		scoreText.text = LocalValues.Score.ToString();
+		LocalValues.score += score;
+		scoreText.text = LocalValues.score.ToString();
 		LocalValues.beatNum++;
 	
 	}
@@ -127,13 +129,13 @@ public class GameController : MonoBehaviour {
 	
 	IEnumerator Result() {
 
-		score.text = LocalValues.Score.ToString();
+		score.text = LocalValues.score.ToString();
 		int l = pc.hp * 1000;
 		life.text =  l.ToString();
 		beat.text = LocalValues.beatNum.ToString();
 		Shot.text = LocalValues.shotNum.ToString();
 
-		int t = (LocalValues.Score + pc.hp * 1000);
+		int t = (LocalValues.score + pc.hp * 1000);
 		totalScore.text = t.ToString();
 		LocalValues.totalScore = t;
 
