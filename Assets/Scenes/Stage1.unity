@@ -1650,11 +1650,11 @@ Prefab:
       objectReference: {fileID: 1051272568}
     - target: {fileID: 22478002, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22478002, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
@@ -5055,15 +5055,32 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22430336, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.85
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 22430336, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 487
+      value: 411
       objectReference: {fileID: 0}
     - target: {fileID: 22430336, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430336, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453652, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3868777d841261643804ca8fd1889637,
+        type: 3}
+    - target: {fileID: 11453652, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453652, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
