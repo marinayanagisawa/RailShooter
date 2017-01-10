@@ -155,7 +155,7 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds(1.0f);
 		panelAnim.SetTrigger ("result");
 
-		yield return new WaitForSeconds (12.0f);
+		yield return new WaitForSeconds (10.0f);
 		//シーン移動
 		SceneManager.LoadScene("ScoreRanking");
 	}

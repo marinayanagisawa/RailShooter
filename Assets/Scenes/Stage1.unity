@@ -1602,7 +1602,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22446396, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 22446396, guid: 293259f4af9d95742a3f4faebb7ab635, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4995,7 +4995,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22451024, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 22451024, guid: d28e48977c01a4e41b4a223868380c08, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -7101,7 +7101,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494438, guid: 3c498902483aafc409b6a1468ed885fa, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11440302, guid: 3c498902483aafc409b6a1468ed885fa, type: 2}
       propertyPath: scoreText
@@ -7884,7 +7884,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423126, guid: b3e8e30fbe3b86e4e91d25313d979341, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11411660, guid: b3e8e30fbe3b86e4e91d25313d979341, type: 2}
       propertyPath: aimPoint
