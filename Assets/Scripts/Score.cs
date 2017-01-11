@@ -85,11 +85,11 @@ public class Score : MonoBehaviour {
 		}
 			
 		//スコアを表示
-		score [0].text = "1st   " + ranking [0].Split (',') [0];
-		score [1].text = "2nd   " + ranking [1].Split (',') [0];
-		score [2].text = "3rd   " + ranking [2].Split (',') [0];
-		score [3].text = "4th   " + ranking [3].Split (',') [0];
-		score [4].text = "5th   " + ranking [4].Split (',') [0];
+		score [0].text = "1st " + ranking [0].Split (',') [0];
+		score [1].text = "2nd " + ranking [1].Split (',') [0];
+		score [2].text = "3rd " + ranking [2].Split (',') [0];
+		score [3].text = "4th " + ranking [3].Split (',') [0];
+		score [4].text = "5th " + ranking [4].Split (',') [0];
 
 		//命中率を表示
 		for (int i = 0; i < 5; i++) {
