@@ -129,10 +129,11 @@ public class GameController : MonoBehaviour {
 
 		panelAnim.SetTrigger ("mFadeOut");
 		StartCoroutine("Result");
+
 	}
 	
 	IEnumerator Result() {
-
+		
 		score.text = LocalValues.score.ToString();
 		int l = pc.hp * 1000;
 		life.text =  l.ToString();
@@ -173,10 +174,10 @@ public class GameController : MonoBehaviour {
 		for (int i = 0; i < comment.Length; i++) {
 			rankCommentText.text += showComment [i];
 			sound.PlayOneShot (sound.clip);
-			yield return new WaitForSeconds (0.004f);
+			yield return new WaitForSeconds (0.005f);
 		}
 
-		yield return new WaitForSeconds (10.0f);
+		yield return new WaitForSeconds (7.5f);
 		//シーン移動
 		SceneManager.LoadScene("ScoreRanking");
 	}
@@ -221,10 +222,10 @@ public class GameController : MonoBehaviour {
 			comment = "残弾に常に注意して、こまめなリロードを行うことが重要だ。\nまた、リロード中は暫く撃てなくなるので、" +
 				"タイミングに注意して行ってほしい。";
 		}else if (rankN == 2) {
-			comment = "敵によって獲得スコアが違う。動かない敵、狙い易い敵は獲得スコアも低い。\n優先順位を考えて破壊せよ。";
+			comment = "敵によって獲得できるスコアは違う。動かない敵、狙い易い敵は獲得スコアも低い。\n優先順位を考えて破壊せよ。";
 		}else if (rankN == 1) {
-			comment = "敵の弾は破壊した時に多くのスコアを獲得できる。わざと撃たせて、落ち着いて撃ち落とすのも手だ。\n" +
-				"また、無駄な被弾にも気をつけてほしい。";
+			comment = "敵の弾は破壊した時に多くのスコアを獲得できる。わざと撃たせて全て撃ち落とせば高得点が狙える。\n" +
+				"ただし、無駄な被弾には気をつけてほしい。";
 		}else if (rankN == 0) {
 			comment = "稀にいる、オーラ状に光る敵を破壊すると多くのスコアを獲得できる。\n" +
 				"また、狙いを正確にし、無駄な弾を撃たないことが重要である。";
