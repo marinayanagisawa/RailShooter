@@ -31,6 +31,12 @@ public class GameController : MonoBehaviour {
 
 	private int rankNum;
 
+	private string comment;
+	private char[] showComment = new char[100];
+	//コメント表示欄を紐づけ
+	public Text rankCommentText;
+	private AudioSource sound;
+
 	//ランク表示用の画像
 	private Sprite[] rankImages = new Sprite[6];
 	//ランク表示のUI(resultCanvas内)を紐づけ
@@ -38,6 +44,7 @@ public class GameController : MonoBehaviour {
 
 	void Start() {
 		LocalValues.Init ();
+		sound = GetComponent<AudioSource> ();
 
 		//ランク表示に使うイメージを取得
 		rankImages = Resources.LoadAll<Sprite> ("Image/");
@@ -52,7 +59,7 @@ public class GameController : MonoBehaviour {
 
 		//スタート表示の間はNavMeshを止めておく
 		player.GetComponent<NavMeshAgent>().Stop();
-		centerText.text = "START";
+		centerText.text = "MISSION ACCEPTED";
 
 		Invoke("GameStart", 2.0f);
 	}
@@ -79,22 +86,19 @@ public class GameController : MonoBehaviour {
 			}
 
 
-
 			if (pc.hp <= 0) {
 				//GameOver演出、リザルト
 				title.GetComponent<Text>().color = new Color(1f, 0.0f, 0.0f, 0.5f);
-				title.text = "FAILURE...";
+				title.text = "MISSION FAILURE...";
 				Finish();
 			}
 
 			if (clear) {
 				//GameClear表示とリザルト
-				title.text = "COMPLETE";
+				title.text = "MISSION ACCOMPLISHED";
 				Finish();
 			}
-
 		}
-
 	}
 
 	public void addScore(int score) {
@@ -154,8 +158,23 @@ public class GameController : MonoBehaviour {
 		RankCheck ();
 		rankIcon.sprite = rankImages[rankNum];
 
+		//リザルトアニメーション
 		yield return new WaitForSeconds(1.0f);
 		panelAnim.SetTrigger ("result");
+
+		//rankNumから表示コメントを決定
+		RankComment (rankNum);
+
+		//stringをcharの配列に代入
+		showComment = comment.ToCharArray();
+		yield return new WaitForSeconds (7.0f);
+
+		//一文字ずつ表示する文字を増やす
+		for (int i = 0; i < comment.Length; i++) {
+			rankCommentText.text += showComment [i];
+			sound.PlayOneShot (sound.clip);
+			yield return new WaitForSeconds (0.004f);
+		}
 
 		yield return new WaitForSeconds (10.0f);
 		//シーン移動
@@ -192,5 +211,27 @@ public class GameController : MonoBehaviour {
 
 		LocalValues.rank = rank;
 	}
+		
+
+	void RankComment(int rankN){
+		if (rankN == 4) {
+			comment = "まずはミッションの達成を目指してほしい。\nショットを撃つタイプの敵とドローンは、" +
+				"撃たれる前に最優先で破壊せよ。";
+		} else if (rankN == 3) {
+			comment = "残弾に常に注意して、こまめなリロードを行うことが重要だ。\nまた、リロード中は暫く撃てなくなるので、" +
+				"タイミングに注意して行ってほしい。";
+		}else if (rankN == 2) {
+			comment = "敵によって獲得スコアが違う。動かない敵、狙い易い敵は獲得スコアも低い。\n優先順位を考えて破壊せよ。";
+		}else if (rankN == 1) {
+			comment = "敵の弾は破壊した時に多くのスコアを獲得できる。わざと撃たせて、落ち着いて撃ち落とすのも手だ。\n" +
+				"また、無駄な被弾にも気をつけてほしい。";
+		}else if (rankN == 0) {
+			comment = "稀にいる、オーラ状に光る敵を破壊すると多くのスコアを獲得できる。\n" +
+				"また、狙いを正確にし、無駄な弾を撃たないことが重要である。";
+		}else if (rankN == 5) {
+			comment = "素晴らしい腕前だ。\n今後の更なる活躍に期待している。";
+		}
+	}
+
 
 }

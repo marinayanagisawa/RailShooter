@@ -9,7 +9,6 @@ public class Door : MonoBehaviour {
 		string layerMask = LayerMask.LayerToName (col.gameObject.layer);
 
 		if (layerMask == "Player") {
-			Debug.Log ("DoorOpen!");
 			anim.SetTrigger ("DoorOpen");
 
 			Invoke("OpenSound", 0.1f);
