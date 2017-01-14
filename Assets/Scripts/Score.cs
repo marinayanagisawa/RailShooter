@@ -38,7 +38,6 @@ public class Score : MonoBehaviour {
 			
 		//前回保存されたスコアを,文字列からintに直して取っておく
 		for (int i = 0; i < 5; i++) {
-			//lastRankingScore[i] = rankingScore[i];
 			lastRankingScore[i] = int.Parse(ranking[i].Split(',')[0]);
 		}
 
@@ -121,7 +120,7 @@ public class Score : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			SceneManager.LoadScene ("StartScene");
+			SceneManager.LoadScene ("Stage1");
 		}
 	}
 
