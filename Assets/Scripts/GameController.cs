@@ -177,7 +177,7 @@ public class GameController : MonoBehaviour {
 			yield return new WaitForSeconds (0.005f);
 		}
 
-		yield return new WaitForSeconds (7.5f);
+		yield return new WaitForSeconds (6.5f);
 		//シーン移動
 		SceneManager.LoadScene("ScoreRanking");
 	}
