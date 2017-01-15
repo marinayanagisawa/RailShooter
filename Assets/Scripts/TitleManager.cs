@@ -7,7 +7,10 @@ public class TitleManager : MonoBehaviour {
 
 	public Animator anim;
 	public AudioSource sound;
-	public bool isShowMenu = true;
+
+	//メニューが出ているか
+	public bool ShowMenu = true;
+	private bool isStartOp = false;
 	
 	private GameObject forcusObj;
 
@@ -18,25 +21,27 @@ public class TitleManager : MonoBehaviour {
 
 	void Update(){
 
-		if (isShowMenu) {
+		if (ShowMenu) {
 			
-
 			//比較する
 			if (forcusObj != EventSystem.current.currentSelectedGameObject) {
-			sound.PlayOneShot(sound.clip);
-		}
+				sound.PlayOneShot(sound.clip);
+			}
 
-		//lastSelectedObjに代入
-		forcusObj = EventSystem.current.currentSelectedGameObject;
+			//lastSelectedObjに代入
+			forcusObj = EventSystem.current.currentSelectedGameObject;
 
 
-		Invoke("StartOp", 15.0f);
-		
+			if (!isStartOp) {
+				Invoke("StartOp", 15.0f);
+				isStartOp = true;
+			}
+
 
 		} else {
 			if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space)) {
 				FinishOp();
-				isShowMenu = true;
+				ShowMenu = true;
 				
 			}
 
@@ -60,7 +65,7 @@ public class TitleManager : MonoBehaviour {
 
 	public void StartOp() {
 		anim.SetTrigger("StartOp");
-		isShowMenu = false;
+		ShowMenu = false;
 
 	}
 
