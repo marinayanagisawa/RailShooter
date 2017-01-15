@@ -42,8 +42,22 @@ public class GameController : MonoBehaviour {
 	//ランク表示のUI(resultCanvas内)を紐づけ
 	public Image rankIcon;
 
+	int stageTotalScore = 0;
+
 	void Start() {
 		LocalValues.Init ();
+
+		//スコア集計用にステージの合計スコアを計算
+		//スコア合計（敵のみ）
+		stageTotalScore = (CountEnemy("Enemy100") * 100) + (CountEnemy("Enemy200") * 200) + +(CountEnemy("Enemy300") * 300) +
+			 +(CountEnemy("Enemy500") * 500) + +(CountEnemy("Enemy1500") * 1500);
+		//スコア合計（弾を追加）
+		stageTotalScore += (CountEnemy("Enemy200") * 1000) + (CountEnemy("Enemy500") * 1000);
+		//スコア合計（HPボーナスを追加）
+		stageTotalScore += 3000;
+		Debug.Log("stageTotalScore:" + stageTotalScore);
+
+
 		sound = GetComponent<AudioSource> ();
 
 		//ランク表示に使うイメージを取得
@@ -183,6 +197,18 @@ public class GameController : MonoBehaviour {
 	}
 
 
+	//タグの名前からステージ内のEnemyを探して数を返す
+	int CountEnemy(string tagName) {
+
+		int enemyNum = 0;
+		GameObject[] enemy = GameObject.FindGameObjectsWithTag(tagName);
+		for (int i = 0; i < enemy.Length; i++) {
+			enemyNum++;
+		}
+		return enemyNum;
+	}
+
+	/*
 	//腕前チェック（条件は暫定, ステージが完成してから調整）
 	void RankCheck(){
 		if (LocalValues.totalScore <= 8000) {
@@ -209,10 +235,42 @@ public class GameController : MonoBehaviour {
 			rankNum = 4;
 			rank = "E";
 		}
-
 		LocalValues.rank = rank;
 	}
-		
+		*/
+
+
+		//ステージのトータルスコアから割合で決定
+	void RankCheck() {
+		if (LocalValues.totalScore <= (stageTotalScore * 0.29) * 100) {
+			rankNum = 3;
+			rank = "D";
+		} else if (LocalValues.totalScore > (stageTotalScore * 0.3) * 100 
+			&& LocalValues.totalScore <= (stageTotalScore *0.49) *100) {
+			rankNum = 2;
+			rank = "C";
+		} else if (LocalValues.totalScore > (stageTotalScore * 0.5) * 100 
+			&& LocalValues.totalScore <= (stageTotalScore * 0.59)* 100) {
+			rankNum = 1;
+			rank = "B";
+		} else if (LocalValues.totalScore > (stageTotalScore * 0.6) * 100) {
+			rankNum = 0;
+			rank = "A";
+		}
+
+		if((LocalValues.totalScore > (stageTotalScore * 0.7) *100) && LocalValues.hitRate > 79){
+			rankNum = 5;
+			rank = "S";
+		}
+
+		if (pc.hp <= 0) {
+			rankNum = 4;
+			rank = "E";
+		}
+		LocalValues.rank = rank;
+	}
+
+
 
 	void RankComment(int rankN){
 		if (rankN == 4) {

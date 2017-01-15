@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - Enemy100
+  - Enemy200
+  - Enemy300
+  - Enemy500
+  - Enemy1500
   layers:
   - Default
   - TransparentFX
