@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1888312641}
   sound: {fileID: 96574182}
+  ShowMenu: 1
 --- !u!82 &96574182
 AudioSource:
   m_ObjectHideFlags: 0
@@ -636,7 +637,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.2, y: 0}
   m_AnchorMax: {x: 0.8, y: 1}
-  m_AnchoredPosition: {x: 0, y: -212.40002}
+  m_AnchoredPosition: {x: 0, y: -818}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869805168
@@ -651,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -660,18 +661,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: a4fd5cf242d860b4d948f8bba5036265, type: 3}
-    m_FontSize: 16
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 245
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\ntest"
+  m_Text: "\u5148\u306E\u4F5C\u6226\u306B\u3088\u308A\u3001\u6211\u3005\u306F\u6575\u306E\u91CD\u8981\u306A\u6A5F\u5BC6\u60C5\u5831\u3092\u5165\u624B\u3057\u305F\u3002\r\n\u4ECA\u56DE\u306E\u4EFB\u52D9\u306F\u3001\u305D\u306E\u30C7\u30FC\u30BF\u3092\u6575\u306E\u652F\u914D\u5730\u57DF\u304B\u3089\u904B\u3073\u51FA\u3059\u3053\u3068\u3067\u3042\u308B\u3002\r\n\r\n\u30C7\u30FC\u30BF\u306E\u53D7\u3051\u6E21\u3057\u306F\u3001\u652A\u4E71\u306E\u305F\u3081\u30EA\u30EC\u30FC\u5F62\u5F0F\u306B\u3066\u884C\u3046\u3002\r\n\u73FE\u5728\u3001\u65E2\u306B\u541B\u304C\u53D7\u3051\u53D6\u3063\u3066\u3044\u308B\u30C7\u30FC\u30BF\u3092\u6975\u79D8\u3067\u76EE\u7684\u5730\u307E\u3067\u904B\u3093\u3067\u307B\u3057\u3044\u3002\r\n\u4F46\u3057\u3001\u6575\u306E\u6CE8\u610F\u3092\u305D\u3089\u3059\u305F\u3081\u306E\u56EE\u90E8\u968A\u306E\u6226\u529B\u306B\u3082\u9650\u754C\u304C\u3042\u308B\u305F\u3081\u3001\u614E\u91CD\u4E14\u3064\u8FC5\u901F\u306A\u884C\u52D5\u3092\u5FC3\u304C\u3051\u3066\u3082\u3089\u3046\u3002\r\n\n\u4ECA\u56DE\u306E\u4EFB\u52D9\u306E\u4E3B\u306A\u30EB\u30FC\u30C8\u306F\u3001\u73FE\u5728\u4F7F\u308F\u308C\u3066\u3044\u306A\u3044\u5009\u5EAB\u68DF\u5185\u3067\u3042\u308A\u3001\r\u65E2\u306B\u7121\u4EBA\u306B\u306A\u3063\u3066\u3044\u308B\u3053\u3068\u304C\u78BA\u8A8D\u3055\u308C\u3066\u3044\u308B\u3002\n\r\u305F\u3060\u3001\u5EFA\u9020\u7269\u5185\u306E\u72EC\u7ACB\u3057\u305F\u30BB\u30AD\u30E5\u30EA\u30C6\u30A3\u30B7\u30B9\u30C6\u30E0\u306F\u672A\u3060\u5065\u5728\u3067\u3042\u308A\u3001\u305D\u308C\u3089\u306E\u59A8\u5BB3\u304C\u4E88\u60F3\u3055\u308C\u308B\u3002\r\n\n\u3053\u3053\u3067\u78BA\u8A8D\u3055\u308C\u3066\u3044\u308B\u30B7\u30B9\u30C6\u30E0\u306F\u3001\u8FFD\u5C3E\u6A5F\u80FD\u306E\u3042\u308B\u30A8\u30CD\u30EB\u30AE\u30FC\u5F3E\u3092\u5C04\u51FA\u3059\u308B\u5371\u967A\u306A\u3082\u306E\u3067\u3042\u308B\u3002\r\u73FE\u5728\u30C1\u30E3\u30FC\u30B8\u3055\u308C\u3066\u3044\u308B\u3068\u3044\u3046\u5831\u544A\u306F\u306A\u3044\u304C\u3001\u6CB9\u65AD\u306F\u3067\u304D\u306A\u3044\u3002\r\n"
 --- !u!222 &869805169
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -709,7 +710,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0.2, y: 0}
   m_AnchorMax: {x: 0.8, y: 1}
-  m_AnchoredPosition: {x: 0, y: -442}
+  m_AnchoredPosition: {x: 0, y: -817}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956109212
@@ -733,7 +734,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: a4fd5cf242d860b4d948f8bba5036265, type: 3}
-    m_FontSize: 16
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -744,7 +745,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\n\u30C6\u30B9\u30C8\ntest"
+  m_Text: "\u906D\u9047\u3057\u305F\u30BB\u30AD\u30E5\u30EA\u30C6\u30A3\u30B7\u30B9\u30C6\u30E0\u306F\u53EF\u80FD\u306A\u9650\u308A\u7834\u58CA\u305B\u3088\u3002\r\n\r\n\n\u5065\u95D8\u3092\u7948\u308B\u3002"
 --- !u!222 &956109213
 CanvasRenderer:
   m_ObjectHideFlags: 0

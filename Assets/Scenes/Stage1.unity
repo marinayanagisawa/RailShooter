@@ -4234,7 +4234,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fb0a3f4de928abb47ad102ce0fbd56ad, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.055
+  m_Volume: 0.423
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8577,7 +8577,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: a4fd5cf242d860b4d948f8bba5036265, type: 3}
     m_FontSize: 23
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
