@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
@@ -44,18 +45,35 @@ public class GameController : MonoBehaviour {
 
 	int stageTotalScore = 0;
 
+	private List<string> enemyTagList = new List<string>{
+		"Enemy100",
+		"Enemy200",
+		"Enemy300",
+		"Enemy500",
+		"Enemy1500",
+	};
+
+
 	void Start() {
 		LocalValues.Init ();
 
 		//スコア集計用にステージの合計スコアを計算
-		//スコア合計（敵のみ）
-		stageTotalScore = (CountEnemy("Enemy100") * 100) + (CountEnemy("Enemy200") * 200) + +(CountEnemy("Enemy300") * 300) +
-			 +(CountEnemy("Enemy500") * 500) + +(CountEnemy("Enemy1500") * 1500);
-		//スコア合計（弾を追加）
-		stageTotalScore += (CountEnemy("Enemy200") * 1000) + (CountEnemy("Enemy500") * 1000);
-		//スコア合計（HPボーナスを追加）
+		foreach (string enemyTag in enemyTagList) {
+			//Enemyの数
+			int enemyNum = CountEnemy(enemyTag);
+			//Enemyの点数
+			int score = int.Parse(enemyTag.Substring(5));
+
+			//スコア合計に加算
+			stageTotalScore += enemyNum * score;
+
+			//弾のスコアを加算
+			if (enemyTag.Equals ("Enemy200") || enemyTag.Equals ("Enemy500")) {
+				stageTotalScore += enemyNum * 1000;
+			}
+		}
+		//ＨＰボーナスを加算
 		stageTotalScore += 3000;
-		Debug.Log("stageTotalScore:" + stageTotalScore);
 
 
 		sound = GetComponent<AudioSource> ();
@@ -200,12 +218,9 @@ public class GameController : MonoBehaviour {
 	//タグの名前からステージ内のEnemyを探して数を返す
 	int CountEnemy(string tagName) {
 
-		int enemyNum = 0;
 		GameObject[] enemy = GameObject.FindGameObjectsWithTag(tagName);
-		for (int i = 0; i < enemy.Length; i++) {
-			enemyNum++;
-		}
-		return enemyNum;
+		return enemy.Length;
+
 	}
 
 	/*
