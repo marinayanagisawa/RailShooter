@@ -71,6 +71,8 @@ public class TitleManager : MonoBehaviour {
 
 	public void FinishOp() {
 		anim.SetTrigger("FinishOp");
+		isStartOp = false;
+		ShowMenu = true;
 		
 	}
 
