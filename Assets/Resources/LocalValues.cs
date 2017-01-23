@@ -13,7 +13,7 @@ public class LocalValues : MonoBehaviour {
 	public static int rankNum = 0;
 	public static string rank = "E";
 
-	public static bool reversal = true;
+	public static bool reversal = false;
 
 
 	public static void Init(){
