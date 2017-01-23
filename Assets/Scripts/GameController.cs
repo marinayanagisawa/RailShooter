@@ -207,7 +207,7 @@ public class GameController : MonoBehaviour {
 		for (int i = 0; i < comment.Length; i++) {
 			rankCommentText.text += showComment [i];
 			sound.PlayOneShot (sound.clip);
-			yield return new WaitForSeconds (0.005f);
+			yield return new WaitForSeconds (0.006f);
 		}
 
 		yield return new WaitForSeconds (6.5f);
