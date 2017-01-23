@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour {
 		//ＨＰボーナスを加算
 		stageTotalScore += 3000;
 
+		Debug.Log (stageTotalScore);
 
 		sound = GetComponent<AudioSource> ();
 
@@ -257,23 +258,26 @@ public class GameController : MonoBehaviour {
 
 		//ステージのトータルスコアから割合で決定
 	void RankCheck() {
-		if (LocalValues.totalScore <= (stageTotalScore * 0.29) * 100) {
+		if (LocalValues.totalScore <= (stageTotalScore * 0.29)) {
 			rankNum = 3;
 			rank = "D";
-		} else if (LocalValues.totalScore > (stageTotalScore * 0.3) * 100 
-			&& LocalValues.totalScore <= (stageTotalScore *0.49) *100) {
+		}
+		if (LocalValues.totalScore > (stageTotalScore * 0.3) 
+			&& LocalValues.totalScore <= (stageTotalScore *0.49)) {
 			rankNum = 2;
 			rank = "C";
-		} else if (LocalValues.totalScore > (stageTotalScore * 0.5) * 100 
-			&& LocalValues.totalScore <= (stageTotalScore * 0.59)* 100) {
+		}
+		if (LocalValues.totalScore > (stageTotalScore * 0.5)
+			&& LocalValues.totalScore <= (stageTotalScore * 0.59)) {
 			rankNum = 1;
 			rank = "B";
-		} else if (LocalValues.totalScore > (stageTotalScore * 0.6) * 100) {
+		}
+		if (LocalValues.totalScore > (stageTotalScore * 0.6) ) {
 			rankNum = 0;
 			rank = "A";
 		}
 
-		if((LocalValues.totalScore > (stageTotalScore * 0.7) *100) && LocalValues.hitRate > 79){
+		if((LocalValues.totalScore > (stageTotalScore * 0.8)) && LocalValues.hitRate > 79){
 			rankNum = 5;
 			rank = "S";
 		}
